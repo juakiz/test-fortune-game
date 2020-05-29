@@ -1,0 +1,124 @@
+{"frames": [
+
+{
+	"filename": "battery.png",
+	"frame": {"x":133,"y":314,"w":96,"h":55},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":96,"h":55},
+	"sourceSize": {"w":96,"h":96}
+},
+{
+	"filename": "bg_decoration.png",
+	"frame": {"x":1,"y":205,"w":130,"h":125},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":112,"w":130,"h":125},
+	"sourceSize": {"w":256,"h":256}
+},
+{
+	"filename": "coinGold.png",
+	"frame": {"x":165,"y":371,"w":63,"h":63},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":63,"h":63},
+	"sourceSize": {"w":64,"h":64}
+},
+{
+	"filename": "finger.png",
+	"frame": {"x":1,"y":1,"w":138,"h":202},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":55,"y":47,"w":138,"h":202},
+	"sourceSize": {"w":256,"h":256}
+},
+{
+	"filename": "gemBlue.png",
+	"frame": {"x":99,"y":423,"w":64,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":10,"w":64,"h":47},
+	"sourceSize": {"w":64,"h":64}
+},
+{
+	"filename": "grassCenter.png",
+	"frame": {"x":49,"y":332,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+{
+	"filename": "grassMid.png",
+	"frame": {"x":49,"y":398,"w":64,"h":23},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":23},
+	"sourceSize": {"w":64,"h":64}
+},
+{
+	"filename": "p1_stand.png",
+	"frame": {"x":141,"y":1,"w":88,"h":119},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":9,"w":88,"h":119},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "pickaxe.png",
+	"frame": {"x":141,"y":122,"w":81,"h":96},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":0,"w":81,"h":96},
+	"sourceSize": {"w":96,"h":96}
+},
+{
+	"filename": "speaker.png",
+	"frame": {"x":133,"y":220,"w":84,"h":92},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":92},
+	"sourceSize": {"w":84,"h":92}
+},
+{
+	"filename": "speaker_off.png",
+	"frame": {"x":1,"y":332,"w":46,"h":92},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":92},
+	"sourceSize": {"w":84,"h":92}
+},
+{
+	"filename": "speaker_off_pixelart.png",
+	"frame": {"x":115,"y":332,"w":12,"h":23},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":23},
+	"sourceSize": {"w":21,"h":23}
+},
+{
+	"filename": "speaker_pixelart.png",
+	"frame": {"x":115,"y":371,"w":21,"h":23},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":21,"h":23},
+	"sourceSize": {"w":21,"h":23}
+},
+{
+	"filename": "spikes.png",
+	"frame": {"x":1,"y":426,"w":96,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":58,"w":96,"h":38},
+	"sourceSize": {"w":96,"h":96}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "assets.png",
+	"format": "RGBA8888",
+	"size": {"w":230,"h":471},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8700c1670cf431c8f7697f4c66d0a982:0bc51e892fa06b05ca8369dc0f00e041:a759b6bbc8381ac9c472b28f589ad0d6$"
+}
+}
