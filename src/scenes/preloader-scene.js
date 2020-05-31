@@ -1,6 +1,8 @@
 import RLC from '../services/responsive-layout-calculator';
 import atlasImg from 'Assets/assets.png';
 import atlasData from 'Assets/assets.json';
+import JPGatlasImg from 'Assets/jpg_imgs.jpg';
+import JPGatlasData from 'Assets/jpg_imgs.json';
 import { FONT_FAMILY, BACKGROUND_COLOR, COLOR_LOADINGBAR_TOP, COLOR_LOADINGBAR_BOT, COLOR_LOADINGBAR_OUTLINE } from '../services/settings';
 import { GenerateTexture } from '../utils/generate-texture';
 
@@ -25,8 +27,9 @@ export default class PreloaderScene extends Phaser.Scene {
         families: [FONT_FAMILY],
       },
     });
-console.log(atlasImg, atlasData);
+
     this.load.atlas('atlas', atlasImg, atlasData);
+    this.load.atlas('jpg_atlas', JPGatlasImg, JPGatlasData);
 
     // if (TEST_IMG) this.load.image('test_img', TEST_IMG);
     // if (MUSIC) this.load.audio('music', MUSIC);

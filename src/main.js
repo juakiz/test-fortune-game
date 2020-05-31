@@ -4,6 +4,7 @@ import WebFontLoaderPlugin from 'Rex/rexwebfontloaderplugin.js';
 
 import PreloadScene from 'Scenes/preloader-scene.js';
 import PlayScene from 'Scenes/play-scene.js';
+import BGScene from 'Scenes/bg-scene.js';
 import UIScene from 'Scenes/ui-scene';
 
 
@@ -21,6 +22,7 @@ const config = {
   scene: [
     PreloadScene,
     PlayScene,
+    BGScene,
     UIScene,
   ],
   plugins: {

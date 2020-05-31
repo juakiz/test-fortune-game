@@ -63,7 +63,7 @@ export default class UIScene extends Phaser.Scene {
 
     (txt.resize = () => {
       txt.x = RLC.CENTER_X;
-      txt.y = RLC.BOT - txt.displayHeight - 200;
+      txt.y = RLC.BOT - txt.displayHeight - 240;
     })();
 
     return txt;

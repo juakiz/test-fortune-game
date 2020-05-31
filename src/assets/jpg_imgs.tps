@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>phaser</string>
         <key>textureFileName</key>
-        <filename>assets.png</filename>
+        <filename>assets.jpg</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -82,7 +82,7 @@
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
-        <enum type="SettingsBase::TextureFormat">png8</enum>
+        <enum type="SettingsBase::TextureFormat">jpg</enum>
         <key>borderPadding</key>
         <uint>0</uint>
         <key>maxTextureSize</key>
@@ -140,7 +140,7 @@
         <key>forceIdenticalLayout</key>
         <false/>
         <key>outputFormat</key>
-        <enum type="SettingsBase::OutputFormat">RGBA8888</enum>
+        <enum type="SettingsBase::OutputFormat">RGB888</enum>
         <key>alphaHandling</key>
         <enum type="SettingsBase::AlphaHandling">ClearTransparentPixels</enum>
         <key>contentProtection</key>
@@ -181,8 +181,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">png/button_bg.png</key>
-            <key type="filename">png/button_front.png</key>
+            <key type="filename">backgrounds/grassland_bg.jpg</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -191,13 +190,15 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>71,71,142,142</rect>
+                <rect>192,256,384,512</rect>
                 <key>scale9Paddings</key>
-                <rect>71,71,142,142</rect>
+                <rect>192,256,384,512</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">png/finger.png</key>
+            <key type="filename">backgrounds/grassland_bricks_01.png</key>
+            <key type="filename">backgrounds/grassland_bricks_02.PNG</key>
+            <key type="filename">backgrounds/grassland_bricks_03.PNG</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -206,16 +207,19 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>64,64,128,128</rect>
+                <rect>55,55,109,109</rect>
                 <key>scale9Paddings</key>
-                <rect>64,64,128,128</rect>
+                <rect>55,55,109,109</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>png</filename>
+            <filename>backgrounds/grassland_bricks_01.png</filename>
+            <filename>backgrounds/grassland_bricks_02.PNG</filename>
+            <filename>backgrounds/grassland_bricks_03.PNG</filename>
+            <filename>backgrounds/grassland_bg.jpg</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

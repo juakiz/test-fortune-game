@@ -1,4 +1,4 @@
-export const FONT_FAMILY = 'Roboto';
+export const FONT_FAMILY = 'Luckiest Guy';
 export const FONT_COLOR = '#ffffff';
 export const FONT_STROKE_COLOR = '#000000';
 export const BACKGROUND_COLOR = '#ffffff';

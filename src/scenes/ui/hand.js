@@ -10,7 +10,7 @@ export default class Hand extends Phaser.GameObjects.Image {
     this.resize();
     this.nag(delay);
 
-    this.showTimer = this.scene.time.delayedCall(200, this.show, [], this);
+    this.showTimer = this.scene.time.delayedCall(7200, this.show, [], this);
     this.program();
   }
 
@@ -57,7 +57,7 @@ export default class Hand extends Phaser.GameObjects.Image {
   program() {
     const program = () => {
       this.showTimer.remove();
-      this.showTimer = this.scene.time.delayedCall(1600, this.show, [], this);
+      this.showTimer = this.scene.time.delayedCall(7200, this.show, [], this);
     };
     this.scene.input.on('pointerdown', program, this);
     this.scene.input.keyboard.on('keydown', program, this);

@@ -1,0 +1,104 @@
+{
+	"textures": [
+		{
+			"image": "jpg_imgs.jpg",
+			"format": "RGB888",
+			"size": {
+				"w": 774,
+				"h": 1284
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "grassland_bg.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 768,
+						"h": 1024
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 768,
+						"h": 1024
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 768,
+						"h": 1024
+					}
+				},
+				{
+					"filename": "grassland_bricks_01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 256,
+						"h": 256
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					},
+					"frame": {
+						"x": 1,
+						"y": 1027,
+						"w": 256,
+						"h": 256
+					}
+				},
+				{
+					"filename": "grassland_bricks_02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 256,
+						"h": 256
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					},
+					"frame": {
+						"x": 259,
+						"y": 1027,
+						"w": 256,
+						"h": 256
+					}
+				},
+				{
+					"filename": "grassland_bricks_03.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 256,
+						"h": 256
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					},
+					"frame": {
+						"x": 517,
+						"y": 1027,
+						"w": 256,
+						"h": 256
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:63a6363dd697f39835492bb11ceebab8:e936ab7ab02981448619ff7d264bc9a9:a5fa1a8648f6b2e9388757ac47491d09$"
+	}
+}

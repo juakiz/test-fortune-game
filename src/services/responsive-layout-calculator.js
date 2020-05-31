@@ -30,7 +30,7 @@ export default class RLC {
 }
 
 // Set letterbox Container size here:
-RLC.BOX_WIDTH = 960;
-RLC.BOX_HEIGHT = 960;
+RLC.BOX_WIDTH = 768;
+RLC.BOX_HEIGHT = 1024;
 
 RLC.resize();
