@@ -1,4 +1,5 @@
 import RLC from '../services/responsive-layout-calculator';
+import CustomFonts from 'Assets/fonts/fonts.css';
 import atlasImg from 'Assets/assets.png';
 import atlasData from 'Assets/assets.json';
 import JPGatlasImg from 'Assets/jpg_imgs.jpg';
@@ -26,8 +27,12 @@ export default class PreloaderScene extends Phaser.Scene {
       google: {
         families: [FONT_FAMILY],
       },
+      custom: {
+        families: ['OSWALDblack'],
+        urls: CustomFonts,
+      }
     });
-
+console.log(CustomFonts);
     this.load.atlas('atlas', atlasImg, atlasData);
     this.load.atlas('jpg_atlas', JPGatlasImg, JPGatlasData);
 

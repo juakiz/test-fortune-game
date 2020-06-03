@@ -1,3 +1,4 @@
+import { MINIMUM_WIDTH, MINIMUM_HEIGHT } from "./settings";
 
 export default class RLC {
   constructor() {
@@ -30,7 +31,7 @@ export default class RLC {
 }
 
 // Set letterbox Container size here:
-RLC.BOX_WIDTH = 768;
-RLC.BOX_HEIGHT = 1024;
+RLC.BOX_WIDTH = MINIMUM_WIDTH;
+RLC.BOX_HEIGHT = MINIMUM_HEIGHT;
 
 RLC.resize();

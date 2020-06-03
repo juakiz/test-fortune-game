@@ -2,11 +2,33 @@ import RLC from '../services/responsive-layout-calculator';
 import { rndArrayItem } from '../utils/general-utils';
 
 const TILE_SIZE = 128;
-const tileKeys = [
-  'grassland_bricks_01.png',
-  'grassland_bricks_02.png',
-  'grassland_bricks_03.png',
-];
+
+const scenarios = [
+  {
+    bg: 'grassland_bg.jpg',
+    tiles: [
+      'grassland_bricks_01.png',
+      'grassland_bricks_02.png',
+      'grassland_bricks_03.png',
+    ],
+  },
+  {
+    bg: 'desert_bg.jpg',
+    tiles: [
+      'desert_bricks_01.png',
+      'desert_bricks_02.png',
+      'desert_bricks_03.png',
+    ],
+  },
+  {
+    bg: 'cave_bg.jpg',
+    tiles: [
+      'cave_bricks_01.png',
+      'cave_bricks_02.png',
+      'cave_bricks_03.png',
+    ],
+  },
+]
 
 export default class BGScene extends Phaser.Scene {
   constructor() {
@@ -20,11 +42,13 @@ export default class BGScene extends Phaser.Scene {
 
     this.playScene = data.playScene;
 
+    this.scenario = rndArrayItem(scenarios);
+
     const canvasTexture = this.textures.createCanvas('bg_tile', 768, 1024);
     this.canvasTexture = canvasTexture;
-    // this.drawCanvasBg();
-
+    
     this.bg_tile = this.add.image(RLC.CENTER_X, RLC.CENTER_Y, 'bg_tile');
+    this.drawCanvasBg();
 
     // Events
     // this.events.on('add-points', this.setScore, this);
@@ -43,7 +67,7 @@ export default class BGScene extends Phaser.Scene {
     this.children.list.forEach(children => { if (children.resize) children.resize(); });
     this.mainCam.setZoom(RLC.SCALE);
     this.mainCam.centerOn(RLC.CENTER_X, RLC.CENTER_Y);
-    this.drawCanvasBg();
+    // this.drawCanvasBg();
   }
 
   update(time, delta) {
@@ -64,8 +88,8 @@ export default class BGScene extends Phaser.Scene {
     };
     if (toGridDimensions.x > this.bg_tile.width || toGridDimensions.y > this.bg_tile.height) {
       const atlasTexture = this.textures.get('jpg_atlas');
-      const bgImgTexture = atlasTexture.get('grassland_bg.jpg');
-      const brickImgTextures = tileKeys.map(value => atlasTexture.get(value));
+      const bgImgTexture = atlasTexture.get(this.scenario.bg);
+      // const brickImgTextures = this.scenario.tiles.map(value => atlasTexture.get(value));
 
       // const toGridDimensions = {
       //   x: this.ceilTiledSize(width),
@@ -86,7 +110,7 @@ export default class BGScene extends Phaser.Scene {
         y: canvasMidPoint.y - (bgImgTexture.height / 2),
       };
 
-      canvasTexture.drawFrame('jpg_atlas', 'grassland_bg.jpg', bgImgPosition.x, bgImgPosition.y);
+      canvasTexture.drawFrame('jpg_atlas', this.scenario.bg, bgImgPosition.x, bgImgPosition.y);
       const drawn = {
         width: 768,
         height: 1024,
@@ -99,8 +123,8 @@ export default class BGScene extends Phaser.Scene {
       while (drawn.width < width) {
         const vTileAmount = toGridDimensions.y / TILE_SIZE;
         for (let i = 0; i < vTileAmount; i++) {
-          canvasTexture.drawFrame('jpg_atlas', rndArrayItem(tileKeys), xPos.left, i * TILE_SIZE);
-          canvasTexture.drawFrame('jpg_atlas', rndArrayItem(tileKeys), xPos.right, i * TILE_SIZE);
+          canvasTexture.drawFrame('jpg_atlas', rndArrayItem(this.scenario.tiles), xPos.left, i * TILE_SIZE);
+          canvasTexture.drawFrame('jpg_atlas', rndArrayItem(this.scenario.tiles), xPos.right, i * TILE_SIZE);
         }
         xPos.left -= TILE_SIZE;
         xPos.right += TILE_SIZE;
@@ -113,10 +137,9 @@ export default class BGScene extends Phaser.Scene {
       };
       while (drawn.height < height) {
         const hTileAmount = toGridDimensions.x / TILE_SIZE;
-        console.log(hTileAmount);
         for (let i = 0; i < hTileAmount; i++) {
-          canvasTexture.drawFrame('jpg_atlas', rndArrayItem(tileKeys), i * TILE_SIZE, yPos.top);
-          canvasTexture.drawFrame('jpg_atlas', rndArrayItem(tileKeys), i * TILE_SIZE, yPos.bottom);
+          canvasTexture.drawFrame('jpg_atlas', rndArrayItem(this.scenario.tiles), i * TILE_SIZE, yPos.top);
+          canvasTexture.drawFrame('jpg_atlas', rndArrayItem(this.scenario.tiles), i * TILE_SIZE, yPos.bottom);
         }
         yPos.top -= TILE_SIZE;
         yPos.bottom += TILE_SIZE;

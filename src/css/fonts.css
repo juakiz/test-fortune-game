@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Mini Square';
+    src: url('Kenney-Mini-Square.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pixel Square';
+  src: url('Kenney-Pixel-Square.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OSWALDblack';
+  src: url('OSWALDblack.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

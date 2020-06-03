@@ -1,6 +1,7 @@
 import RLC from '../services/responsive-layout-calculator';
 import { BACKGROUND_COLOR } from '../services/settings';
 import { createText } from '../utils/general-utils';
+import Slot from './play/slot';
 
 export default class PlayScene extends Phaser.Scene {
   constructor() {
@@ -14,23 +15,29 @@ export default class PlayScene extends Phaser.Scene {
     // Gameplay Manager
     // Key props
     // Game Objects
+
+    const m_frame = this.add.image(0, 0, 'atlas', 'm_frame.png');
+    m_frame.x = RLC.CENTER_X;
+    m_frame.y = RLC.CENTER_Y;
+
     const circle = this.add.circle(0, 0, 131);
     circle.setFillStyle(0x36fe00);
     // circle.setFillStyle(0xfb0000);
 
     const spin_txt = createText(this, {
+      // fontFamily: 'OSWALDblack',
       text: 'SPIN',
-      size: '100px',
+      size: '90px',
       color: '#fff',
     });
-    spin_txt.setStroke();
+    // spin_txt.setStroke();
 
     const button_bg = this.add.image(0, 0, 'atlas', 'button_bg.png');
     button_bg.x = RLC.CENTER_X;
-    button_bg.y = RLC.BOX_HEIGHT - (button_bg.displayHeight / 2) - 20;
+    button_bg.y = RLC.BOX_HEIGHT - (button_bg.displayHeight / 2) - 75;
 
     circle.setPosition(button_bg.x, button_bg.y);
-    spin_txt.setPosition(button_bg.x, button_bg.y);
+    spin_txt.setPosition(button_bg.x, button_bg.y - 15);
 
     const button_front = this.add.image(0, 0, 'atlas', 'button_front.png');
     button_front.x = button_bg.x;
@@ -58,6 +65,13 @@ export default class PlayScene extends Phaser.Scene {
         }).bind(this),
       });
     }, this);
+
+    // Slots
+    const slotFrame = this.add.image(RLC.CENTER_X, 310, 'atlas', 'inventory_smaller.png');
+    this.slots = [];
+    this.slots[0] = new Slot(this, 167, slotFrame.y);
+    this.slots[1] = new Slot(this, RLC.CENTER_X, slotFrame.y);
+    this.slots[2] = new Slot(this, RLC.BOX_WIDTH - 167, slotFrame.y);
 
     // Sounds
     // this.music = this.sound.add('music');

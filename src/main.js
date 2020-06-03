@@ -1,6 +1,6 @@
 import 'phaser';
 // import UIPlugin from 'Rex/rexuiplugin.min.js';
-import WebFontLoaderPlugin from 'Rex/rexwebfontloaderplugin.js';
+import WebFontLoaderPlugin from './plugins/rexwebfontloaderplugin.js';
 
 import PreloadScene from 'Scenes/preloader-scene.js';
 import PlayScene from 'Scenes/play-scene.js';

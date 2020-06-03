@@ -17,31 +17,50 @@ export default class UIScene extends Phaser.Scene {
     this.playScene = data.playScene;
     // Inside view GO
 
-    // Border anchored GO
-    const cfg = {
+    // Score
+    this.moneyTxt = new Counter(this, 2500, {
       duration: 10,
       durationPerUnit: true,
+      suffix: ' kr',
       style: {
-        fontSize: '62px',
+        fontSize: '46px',
         fontFamily: FONT_FAMILY,
         color: FONT_COLOR,
         stroke: FONT_STROKE_COLOR,
         strokeThickness: 8,
       },
-    };
-
-    // Score
-    this.scoreTxt = new Counter(this, 0, cfg)
+    })
       .setOrigin(1, 0.5);
+    // this.moneyTxt.modCounter(2500);
 
-    this.scoreTxt.resize = () => {
-      this.scoreTxt.x = RLC.RIGHT - 30;
-      this.scoreTxt.y = RLC.TOP + 50;
+    this.moneyTxt.setStyle({ fontFamily: 'OSWALDblack', fontSize: '86px' });
+    this.moneyTxt.setStroke();
+    this.moneyTxt.setShadow(0, 3, '#808080', 11, false, true);
+    this.moneyTxt.setPadding({ x: 6, y: 6 });
+
+    var gradient = this.moneyTxt.context.createLinearGradient(0, 0, 0, this.moneyTxt.displayHeight);
+
+    // Gold
+    gradient.addColorStop(0.1, '#feec4e');
+    gradient.addColorStop(0.4, '#fde301');
+    gradient.addColorStop(0.8, '#f0b809');
+
+    // Metal
+    // gradient.addColorStop(0, '#111111');
+    // gradient.addColorStop(.5, '#ffffff');
+    // gradient.addColorStop(.5, '#aaaaaa');
+    // gradient.addColorStop(1, '#111111');
+
+    this.moneyTxt.setFill(gradient);
+
+    this.moneyTxt.resize = () => {
+      this.moneyTxt.x = RLC.CENTER_X + 205;
+      this.moneyTxt.y = 132;
     };
 
     this.nagTxt = this.tapToPlay();
 
-    this.handR = new Hand(this);
+    // this.handR = new Hand(this);
 
     // Events
     this.events.on('add-points', this.setScore, this);
@@ -53,17 +72,27 @@ export default class UIScene extends Phaser.Scene {
 
   tapToPlay() {
     const txt = createText(this, {
-      text: 'TAP TO PLAY',
+      // fontFamily: 'OSWALDblack',
+      text: /* '0123456789',// */'PUSH THE\nBUTTON!',
       size: '94px',
-      strokeThickness: 12,
+      strokeColor: '#dddddd',
+      // strokeThickness: 12,
     });
+
+    var gradient = txt.context.createLinearGradient(0, 0, 0, txt.displayHeight);
+    gradient.addColorStop(0, '#111111');
+    gradient.addColorStop(.5, '#ffffff');
+    gradient.addColorStop(.5, '#aaaaaa');
+    gradient.addColorStop(1, '#111111');
+    txt.setFill(gradient);
+
 
     this.events.on('hideNag', () => { txt.alpha = 0; }, this);
     this.events.on('showNag', () => { if (!this.disableShooting) txt.alpha = 1; }, this);
 
     (txt.resize = () => {
       txt.x = RLC.CENTER_X;
-      txt.y = RLC.BOT - txt.displayHeight - 240;
+      txt.y = RLC.CENTER_Y + 25;
     })();
 
     return txt;
@@ -71,7 +100,7 @@ export default class UIScene extends Phaser.Scene {
 
   setScore() {
     const points = 10 + Math.floor(this.playScene.RWM.player.y / 10);
-    this.scoreTxt.modCounter(points);
+    this.moneyTxt.modCounter(points);
   }
 
   removeListeners() {

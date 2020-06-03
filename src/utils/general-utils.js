@@ -22,7 +22,7 @@ export const createText = (scene, config) => {
     text: config.text || 'Test',
     style: {
       fontSize: config.size || '64px',
-      fontFamily: config.fontFamily || FONT_FAMILY,
+      fontFamily: config.fontFamily ? `"${config.fontFamily}"` : FONT_FAMILY,
       color: config.color || FONT_COLOR,
       align: 'center',
       stroke: config.strokeColor || FONT_STROKE_COLOR,

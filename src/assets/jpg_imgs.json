@@ -4,11 +4,53 @@
 			"image": "jpg_imgs.jpg",
 			"format": "RGB888",
 			"size": {
-				"w": 770,
-				"h": 1156
+				"w": 1536,
+				"h": 2048
 			},
 			"scale": 1,
 			"frames": [
+				{
+					"filename": "cave_bg.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 768,
+						"h": 1024
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 768,
+						"h": 1024
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 768,
+						"h": 1024
+					}
+				},
+				{
+					"filename": "desert_bg.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 768,
+						"h": 1024
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 768,
+						"h": 1024
+					},
+					"frame": {
+						"x": 768,
+						"y": 0,
+						"w": 768,
+						"h": 1024
+					}
+				},
 				{
 					"filename": "grassland_bg.jpg",
 					"rotated": false,
@@ -24,10 +66,136 @@
 						"h": 1024
 					},
 					"frame": {
-						"x": 1,
-						"y": 1,
+						"x": 0,
+						"y": 1024,
 						"w": 768,
 						"h": 1024
+					}
+				},
+				{
+					"filename": "cave_bricks_01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 768,
+						"y": 1024,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "cave_bricks_02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 896,
+						"y": 1024,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "cave_bricks_03.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 1024,
+						"y": 1024,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "desert_bricks_01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 1152,
+						"y": 1024,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "desert_bricks_02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 1280,
+						"y": 1024,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "desert_bricks_03.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 1408,
+						"y": 1024,
+						"w": 128,
+						"h": 128
 					}
 				},
 				{
@@ -45,8 +213,8 @@
 						"h": 128
 					},
 					"frame": {
-						"x": 1,
-						"y": 1027,
+						"x": 768,
+						"y": 1152,
 						"w": 128,
 						"h": 128
 					}
@@ -66,8 +234,8 @@
 						"h": 128
 					},
 					"frame": {
-						"x": 131,
-						"y": 1027,
+						"x": 896,
+						"y": 1152,
 						"w": 128,
 						"h": 128
 					}
@@ -87,8 +255,8 @@
 						"h": 128
 					},
 					"frame": {
-						"x": 261,
-						"y": 1027,
+						"x": 1024,
+						"y": 1152,
 						"w": 128,
 						"h": 128
 					}
@@ -99,6 +267,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:1f2de46e96f436691e17b534f45d3b42:b4ef55dc5bd2aaa94c20e623725fffd8:a5fa1a8648f6b2e9388757ac47491d09$"
+		"smartupdate": "$TexturePacker:SmartUpdate:7922586c2d14ae9aa1c88c5d2401e09c:33696e4694c7ebbe45a2f149e24e4cd7:a5fa1a8648f6b2e9388757ac47491d09$"
 	}
 }
