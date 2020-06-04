@@ -1,7 +1,7 @@
 // import getImageOutline from 'image-outline';
 // import { decomp } from "poly-decomp";
 
-import { FONT_FAMILY, FONT_COLOR, FONT_STROKE_COLOR } from "../services/settings";
+import { FONT_FAMILY, FONT_COLOR, FONT_STROKE_COLOR } from "../services/game-settings";
 
 const rnd = Phaser.Math.Between;
 

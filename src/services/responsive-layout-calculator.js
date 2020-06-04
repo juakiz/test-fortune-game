@@ -1,4 +1,4 @@
-import { MINIMUM_WIDTH, MINIMUM_HEIGHT } from "./settings";
+import { MINIMUM_WIDTH, MINIMUM_HEIGHT } from "./game-settings";
 
 export default class RLC {
   constructor() {

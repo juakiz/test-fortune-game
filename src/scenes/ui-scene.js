@@ -1,5 +1,5 @@
 import RLC from '../services/responsive-layout-calculator';
-import { FONT_FAMILY, FONT_COLOR, FONT_STROKE_COLOR } from '../services/settings';
+import { FONT_FAMILY, FONT_COLOR, FONT_STROKE_COLOR } from '../services/game-settings';
 import Counter from '../utils/counter-txt';
 import Timer from '../utils/timer';
 import Hand from './ui/hand';

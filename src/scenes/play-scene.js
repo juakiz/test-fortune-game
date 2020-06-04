@@ -1,7 +1,8 @@
 import RLC from '../services/responsive-layout-calculator';
-import { BACKGROUND_COLOR } from '../services/settings';
+import { BACKGROUND_COLOR } from '../services/game-settings';
 import { createText } from '../utils/general-utils';
 import Slot from './play/slot';
+import SlotController from '../services/slot-controller';
 
 export default class PlayScene extends Phaser.Scene {
   constructor() {
@@ -21,6 +22,7 @@ export default class PlayScene extends Phaser.Scene {
     m_frame.y = RLC.CENTER_Y;
 
     const circle = this.add.circle(0, 0, 131);
+    this.circle = circle;
     circle.setFillStyle(0x36fe00);
     // circle.setFillStyle(0xfb0000);
 
@@ -40,38 +42,21 @@ export default class PlayScene extends Phaser.Scene {
     spin_txt.setPosition(button_bg.x, button_bg.y - 15);
 
     const button_front = this.add.image(0, 0, 'atlas', 'button_front.png');
+    this.button_front = button_front;
     button_front.x = button_bg.x;
     button_front.y = button_bg.y;
 
     button_front.setInteractive();
-    button_front.on('pointerdown', () => {
-      button_front.setScale(0.96, 0.96);
-      circle.setFillStyle(0xfb0000);
-
-      // button_front.once('pointerup', () => {
-      //   button_front.setScale(1, 1);
-      // }, this);
-      //   this.tweens.add({
-      //     targets: button_front,
-      //     scaleX: 1,
-      //     scaleY: 1,
-      //     duration: 100,
-      // });
-      this.time.addEvent({
-        delay: 100,
-        callback: (() => {
-          button_front.setScale(1, 1);
-          circle.setFillStyle(0x36fe00);
-        }).bind(this),
-      });
-    }, this);
+    button_front.on('pointerdown', this.onPushButton, this);
 
     // Slots
-    const slotFrame = this.add.image(RLC.CENTER_X, 310, 'atlas', 'inventory_smaller.png');
-    this.slots = [];
-    this.slots[0] = new Slot(this, 167, slotFrame.y);
-    this.slots[1] = new Slot(this, RLC.CENTER_X, slotFrame.y);
-    this.slots[2] = new Slot(this, RLC.BOX_WIDTH - 167, slotFrame.y);
+    const slotFrame = this.add.image(RLC.CENTER_X, 310, 'atlas', 'slot_container.png');
+    this.slots = [
+      new Slot(this, 167, slotFrame.y),
+      new Slot(this, RLC.CENTER_X, slotFrame.y),
+      new Slot(this, RLC.BOX_WIDTH - 167, slotFrame.y),
+    ];
+    this.slotController = new SlotController(this);
 
     // Sounds
     // this.music = this.sound.add('music');
@@ -117,6 +102,24 @@ export default class PlayScene extends Phaser.Scene {
   }
 
   // Gameplay methods
+  onPushButton() {
+    if (this.slotController.spinning) return; // TODO: REMOVE THIS, TEMPORAL
+    const {circle, button_front } = this;
+
+    button_front.setScale(0.96, 0.96);
+    circle.setFillStyle(0xfb0000);
+    this.time.addEvent({
+      delay: 100,
+      callback: (() => {
+        button_front.setScale(1, 1);
+      }).bind(this),
+    });
+
+    this.slotController.onPushButton(5);
+  }
+
+
+
   createParticles() {
     this.particles = this.add.particles('particle');
 
@@ -141,5 +144,6 @@ export default class PlayScene extends Phaser.Scene {
 
   update(time, delta) {
     this.children.list.forEach(children => { if (children.update) children.update(); });
+    this.slotController.update();
   }
 }

@@ -4,7 +4,7 @@ import atlasImg from 'Assets/assets.png';
 import atlasData from 'Assets/assets.json';
 import JPGatlasImg from 'Assets/jpg_imgs.jpg';
 import JPGatlasData from 'Assets/jpg_imgs.json';
-import { FONT_FAMILY, BACKGROUND_COLOR, COLOR_LOADINGBAR_TOP, COLOR_LOADINGBAR_BOT, COLOR_LOADINGBAR_OUTLINE } from '../services/settings';
+import { FONT_FAMILY, BACKGROUND_COLOR, COLOR_LOADINGBAR_TOP, COLOR_LOADINGBAR_BOT, COLOR_LOADINGBAR_OUTLINE } from '../services/game-settings';
 import { GenerateTexture } from '../utils/generate-texture';
 
 

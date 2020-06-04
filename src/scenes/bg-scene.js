@@ -1,34 +1,8 @@
 import RLC from '../services/responsive-layout-calculator';
 import { rndArrayItem } from '../utils/general-utils';
+import { SCENARIOS } from '../services/assets-data';
 
 const TILE_SIZE = 128;
-
-const scenarios = [
-  {
-    bg: 'grassland_bg.jpg',
-    tiles: [
-      'grassland_bricks_01.png',
-      'grassland_bricks_02.png',
-      'grassland_bricks_03.png',
-    ],
-  },
-  {
-    bg: 'desert_bg.jpg',
-    tiles: [
-      'desert_bricks_01.png',
-      'desert_bricks_02.png',
-      'desert_bricks_03.png',
-    ],
-  },
-  {
-    bg: 'cave_bg.jpg',
-    tiles: [
-      'cave_bricks_01.png',
-      'cave_bricks_02.png',
-      'cave_bricks_03.png',
-    ],
-  },
-]
 
 export default class BGScene extends Phaser.Scene {
   constructor() {
@@ -42,7 +16,7 @@ export default class BGScene extends Phaser.Scene {
 
     this.playScene = data.playScene;
 
-    this.scenario = rndArrayItem(scenarios);
+    this.scenario = rndArrayItem(SCENARIOS);
 
     const canvasTexture = this.textures.createCanvas('bg_tile', 768, 1024);
     this.canvasTexture = canvasTexture;

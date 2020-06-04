@@ -4,8 +4,8 @@
 			"image": "assets.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 1004,
-				"h": 1580
+				"w": 999,
+				"h": 1737
 			},
 			"scale": 1,
 			"frames": [
@@ -52,6 +52,27 @@
 					}
 				},
 				{
+					"filename": "ring.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 236,
+						"h": 236
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 236,
+						"h": 236
+					},
+					"frame": {
+						"x": 754,
+						"y": 247,
+						"w": 236,
+						"h": 236
+					}
+				},
+				{
 					"filename": "slot_frame.png",
 					"rotated": false,
 					"trimmed": false,
@@ -67,72 +88,72 @@
 					},
 					"frame": {
 						"x": 754,
-						"y": 247,
+						"y": 485,
 						"w": 204,
 						"h": 198
 					}
 				},
 				{
-					"filename": "symbols/coins.png",
+					"filename": "flare.png",
 					"rotated": false,
-					"trimmed": false,
+					"trimmed": true,
 					"sourceSize": {
-						"w": 43,
-						"h": 46
+						"w": 200,
+						"h": 200
 					},
 					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 43,
-						"h": 46
+						"x": 1,
+						"y": 1,
+						"w": 199,
+						"h": 199
 					},
 					"frame": {
-						"x": 960,
-						"y": 247,
-						"w": 43,
-						"h": 46
+						"x": 754,
+						"y": 685,
+						"w": 199,
+						"h": 199
 					}
 				},
 				{
-					"filename": "symbols/bag.png",
+					"filename": "shine.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 41,
-						"h": 45
+						"w": 163,
+						"h": 90
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 41,
-						"h": 45
+						"w": 163,
+						"h": 90
 					},
 					"frame": {
-						"x": 960,
-						"y": 295,
-						"w": 41,
-						"h": 45
+						"x": 754,
+						"y": 886,
+						"w": 163,
+						"h": 90
 					}
 				},
 				{
-					"filename": "symbols/ring.png",
+					"filename": "smoke.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 38,
-						"h": 49
+						"w": 78,
+						"h": 77
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 38,
-						"h": 49
+						"w": 78,
+						"h": 77
 					},
 					"frame": {
-						"x": 960,
-						"y": 342,
-						"w": 38,
-						"h": 49
+						"x": 919,
+						"y": 886,
+						"w": 78,
+						"h": 77
 					}
 				},
 				{
@@ -151,7 +172,7 @@
 					},
 					"frame": {
 						"x": 754,
-						"y": 447,
+						"y": 978,
 						"w": 146,
 						"h": 148
 					}
@@ -172,7 +193,7 @@
 					},
 					"frame": {
 						"x": 902,
-						"y": 447,
+						"y": 978,
 						"w": 83,
 						"h": 26
 					}
@@ -193,7 +214,7 @@
 					},
 					"frame": {
 						"x": 902,
-						"y": 475,
+						"y": 1006,
 						"w": 83,
 						"h": 26
 					}
@@ -214,156 +235,51 @@
 					},
 					"frame": {
 						"x": 902,
-						"y": 503,
+						"y": 1034,
 						"w": 83,
 						"h": 26
 					}
 				},
 				{
-					"filename": "symbols/goldbars.png",
+					"filename": "slot_container.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 54,
-						"h": 45
+						"w": 680,
+						"h": 230
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 54,
-						"h": 45
-					},
-					"frame": {
-						"x": 902,
-						"y": 531,
-						"w": 54,
-						"h": 45
-					}
-				},
-				{
-					"filename": "symbols/diamond.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 48,
-						"h": 41
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 48,
-						"h": 41
-					},
-					"frame": {
-						"x": 902,
-						"y": 578,
-						"w": 48,
-						"h": 41
-					}
-				},
-				{
-					"filename": "symbols/orange.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 144,
-						"h": 139
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 144,
-						"h": 139
-					},
-					"frame": {
-						"x": 754,
-						"y": 597,
-						"w": 144,
-						"h": 139
-					}
-				},
-				{
-					"filename": "finger.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 256,
-						"h": 256
-					},
-					"spriteSourceSize": {
-						"x": 59,
-						"y": 47,
-						"w": 138,
-						"h": 202
-					},
-					"frame": {
-						"x": 754,
-						"y": 738,
-						"w": 138,
-						"h": 202
-					}
-				},
-				{
-					"filename": "symbols/red.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 109,
-						"h": 122
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 109,
-						"h": 122
-					},
-					"frame": {
-						"x": 894,
-						"y": 738,
-						"w": 109,
-						"h": 122
-					}
-				},
-				{
-					"filename": "symbols/rainbow.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 135,
-						"h": 150
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 135,
-						"h": 150
-					},
-					"frame": {
-						"x": 754,
-						"y": 942,
-						"w": 135,
-						"h": 150
-					}
-				},
-				{
-					"filename": "money_frame.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 730,
-						"h": 182
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 728,
-						"h": 182
+						"w": 680,
+						"h": 230
 					},
 					"frame": {
 						"x": 1,
 						"y": 1027,
-						"w": 728,
-						"h": 182
+						"w": 680,
+						"h": 230
+					}
+				},
+				{
+					"filename": "chest-closed.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 393,
+						"h": 358
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 53,
+						"w": 297,
+						"h": 267
+					},
+					"frame": {
+						"x": 683,
+						"y": 1128,
+						"w": 297,
+						"h": 267
 					}
 				},
 				{
@@ -382,30 +298,9 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 1211,
+						"y": 1397,
 						"w": 284,
 						"h": 284
-					}
-				},
-				{
-					"filename": "inventory_smaller.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 680,
-						"h": 230
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 680,
-						"h": 230
-					},
-					"frame": {
-						"x": 287,
-						"y": 1211,
-						"w": 680,
-						"h": 230
 					}
 				},
 				{
@@ -423,8 +318,8 @@
 						"h": 136
 					},
 					"frame": {
-						"x": 287,
-						"y": 1443,
+						"x": 1,
+						"y": 1259,
 						"w": 135,
 						"h": 136
 					}
@@ -444,8 +339,8 @@
 						"h": 133
 					},
 					"frame": {
-						"x": 424,
-						"y": 1443,
+						"x": 138,
+						"y": 1259,
 						"w": 130,
 						"h": 133
 					}
@@ -465,10 +360,31 @@
 						"h": 131
 					},
 					"frame": {
-						"x": 556,
-						"y": 1443,
+						"x": 270,
+						"y": 1259,
 						"w": 120,
 						"h": 131
+					}
+				},
+				{
+					"filename": "chest-open.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 420,
+						"h": 456
+					},
+					"spriteSourceSize": {
+						"x": 34,
+						"y": 47,
+						"w": 349,
+						"h": 344
+					},
+					"frame": {
+						"x": 287,
+						"y": 1392,
+						"w": 349,
+						"h": 344
 					}
 				},
 				{
@@ -486,10 +402,94 @@
 						"h": 130
 					},
 					"frame": {
-						"x": 678,
-						"y": 1443,
+						"x": 392,
+						"y": 1259,
 						"w": 130,
 						"h": 130
+					}
+				},
+				{
+					"filename": "symbols/red.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 109,
+						"h": 122
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 109,
+						"h": 122
+					},
+					"frame": {
+						"x": 524,
+						"y": 1259,
+						"w": 109,
+						"h": 122
+					}
+				},
+				{
+					"filename": "finger.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 256,
+						"h": 256
+					},
+					"spriteSourceSize": {
+						"x": 59,
+						"y": 47,
+						"w": 138,
+						"h": 202
+					},
+					"frame": {
+						"x": 638,
+						"y": 1397,
+						"w": 138,
+						"h": 202
+					}
+				},
+				{
+					"filename": "symbols/orange.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 144,
+						"h": 139
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 144,
+						"h": 139
+					},
+					"frame": {
+						"x": 778,
+						"y": 1397,
+						"w": 144,
+						"h": 139
+					}
+				},
+				{
+					"filename": "symbols/rainbow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 135,
+						"h": 150
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 135,
+						"h": 150
+					},
+					"frame": {
+						"x": 778,
+						"y": 1538,
+						"w": 135,
+						"h": 150
 					}
 				}
 			]
@@ -498,6 +498,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:d4e6a07c8180df379b86068b1e55ee87:6482405897b8c65d654f9fe2c0a2643a:a759b6bbc8381ac9c472b28f589ad0d6$"
+		"smartupdate": "$TexturePacker:SmartUpdate:66a493e89109322f3d4b73e3012c1dc0:b2c8f410cc45eeeff900ca3b9603e0df:a759b6bbc8381ac9c472b28f589ad0d6$"
 	}
 }
