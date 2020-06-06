@@ -32,7 +32,7 @@ export default class PreloaderScene extends Phaser.Scene {
         urls: CustomFonts,
       }
     });
-console.log(CustomFonts);
+
     this.load.atlas('atlas', atlasImg, atlasData);
     this.load.atlas('jpg_atlas', JPGatlasImg, JPGatlasData);
 
@@ -77,6 +77,9 @@ console.log(CustomFonts);
 
   create() {
     this.input.mouse.disableContextMenu();
+
+    GenerateTexture.rectFilled(this, 'slot_bg_black', 152, 152, 0x000000);
+    GenerateTexture.rectFilled(this, 'slot_bg_white', 152, 152, 0xffffff);
 
     GenerateTexture.circleFill(this, 'spinner', 32, 0xcccccc);
 

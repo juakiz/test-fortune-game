@@ -25,8 +25,8 @@ export const createText = (scene, config) => {
       fontFamily: config.fontFamily ? `"${config.fontFamily}"` : FONT_FAMILY,
       color: config.color || FONT_COLOR,
       align: 'center',
-      stroke: config.strokeColor || FONT_STROKE_COLOR,
-      strokeThickness: config.strokeThickness || 4,
+      // stroke: config.strokeColor || FONT_STROKE_COLOR,
+      // strokeThickness: config.strokeThickness || 4,
     },
     add: true
   })

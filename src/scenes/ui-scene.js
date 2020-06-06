@@ -1,9 +1,8 @@
 import RLC from '../services/responsive-layout-calculator';
-import { FONT_FAMILY, FONT_COLOR, FONT_STROKE_COLOR } from '../services/game-settings';
+import { FONT_FAMILY, FONT_COLOR, FONT_STROKE_COLOR, INITIAL_MONEY } from '../services/game-settings';
 import Counter from '../utils/counter-txt';
-import Timer from '../utils/timer';
-import Hand from './ui/hand';
-import { createText } from '../utils/general-utils';
+import Timer from '../utils/timer';import { createText } from '../utils/general-utils';
+import GradientText from './ui/gradient-text';
 
 export default class UIScene extends Phaser.Scene {
   constructor() {
@@ -18,8 +17,8 @@ export default class UIScene extends Phaser.Scene {
     // Inside view GO
 
     // Score
-    this.moneyTxt = new Counter(this, 2500, {
-      duration: 10,
+    this.moneyTxt = new Counter(this, INITIAL_MONEY, {
+      duration: 5,
       durationPerUnit: true,
       suffix: ' kr',
       style: {
@@ -60,8 +59,6 @@ export default class UIScene extends Phaser.Scene {
 
     this.nagTxt = this.tapToPlay();
 
-    // this.handR = new Hand(this);
-
     // Events
     this.events.on('add-points', this.setScore, this);
 
@@ -71,29 +68,34 @@ export default class UIScene extends Phaser.Scene {
   }
 
   tapToPlay() {
-    const txt = createText(this, {
-      // fontFamily: 'OSWALDblack',
-      text: /* '0123456789',// */'PUSH THE\nBUTTON!',
-      size: '94px',
-      strokeColor: '#dddddd',
-      // strokeThickness: 12,
+    // const txt = createText(this, {
+    //   // fontFamily: 'OSWALDblack',
+    //   text: /* '0123456789',// */'PUSH BUTTON!',
+    //   size: '94px',
+    //   strokeColor: '#dddddd',
+    //   // strokeThickness: 12,
+    // });
+
+    // var gradient = txt.context.createLinearGradient(0, 0, 0, txt.displayHeight);
+    // gradient.addColorStop(0, '#111111');
+    // gradient.addColorStop(.5, '#ffffff');
+    // gradient.addColorStop(.5, '#aaaaaa');
+    // gradient.addColorStop(1, '#111111');
+    // txt.setFill(gradient);
+
+    const txt = new GradientText(this, RLC.CENTER_X, RLC.CENTER_Y + 25, {
+        // fontFamily: 'OSWALDblack',
+        text: /* '0123456789',// */'PUSH BUTTON!',
+        size: '84px',
     });
-
-    var gradient = txt.context.createLinearGradient(0, 0, 0, txt.displayHeight);
-    gradient.addColorStop(0, '#111111');
-    gradient.addColorStop(.5, '#ffffff');
-    gradient.addColorStop(.5, '#aaaaaa');
-    gradient.addColorStop(1, '#111111');
-    txt.setFill(gradient);
-
 
     this.events.on('hideNag', () => { txt.alpha = 0; }, this);
     this.events.on('showNag', () => { if (!this.disableShooting) txt.alpha = 1; }, this);
 
-    (txt.resize = () => {
-      txt.x = RLC.CENTER_X;
-      txt.y = RLC.CENTER_Y + 25;
-    })();
+    // (txt.resize = () => {
+    //   txt.x = RLC.CENTER_X;
+    //   txt.y = RLC.CENTER_Y + 25;
+    // })();
 
     return txt;
   }

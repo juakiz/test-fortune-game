@@ -37,7 +37,7 @@ export const SYMBOLS = [
 ];
 
 export const SLOT_LIGHTS = [
-  'slot_loght_yellow.png',
-  'slot_loght_red.png',
-  'slot_loght_green.png',
+  'slot_light_yellow.png',
+  'slot_light_red.png',
+  'slot_light_green.png',
 ];

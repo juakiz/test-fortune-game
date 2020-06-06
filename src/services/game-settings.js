@@ -12,3 +12,8 @@ export const BACKGROUND_COLOR = '#ffffff';
 export const COLOR_LOADINGBAR_TOP = Phaser.Display.Color.HexStringToColor('#808080').color;
 export const COLOR_LOADINGBAR_BOT = Phaser.Display.Color.HexStringToColor('#404040').color;
 export const COLOR_LOADINGBAR_OUTLINE = Phaser.Display.Color.HexStringToColor('#202020').color;
+
+// Gameplay
+export const MAX_SERVER_DELAY = 400;
+export const INITIAL_MONEY = 2500;
+export const INITIAL_BID = 50;

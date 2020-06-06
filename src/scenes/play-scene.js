@@ -1,5 +1,5 @@
 import RLC from '../services/responsive-layout-calculator';
-import { BACKGROUND_COLOR } from '../services/game-settings';
+import { BACKGROUND_COLOR, INITIAL_BID, FONT_STROKE_COLOR } from '../services/game-settings';
 import { createText } from '../utils/general-utils';
 import Slot from './play/slot';
 import SlotController from '../services/slot-controller';
@@ -15,6 +15,7 @@ export default class PlayScene extends Phaser.Scene {
 
     // Gameplay Manager
     // Key props
+    this.bid = INITIAL_BID;
     // Game Objects
 
     const m_frame = this.add.image(0, 0, 'atlas', 'm_frame.png');
@@ -32,7 +33,7 @@ export default class PlayScene extends Phaser.Scene {
       size: '90px',
       color: '#fff',
     });
-    // spin_txt.setStroke();
+    spin_txt.setStroke(FONT_STROKE_COLOR, 4);
 
     const button_bg = this.add.image(0, 0, 'atlas', 'button_bg.png');
     button_bg.x = RLC.CENTER_X;
@@ -115,7 +116,8 @@ export default class PlayScene extends Phaser.Scene {
       }).bind(this),
     });
 
-    this.slotController.onPushButton(5);
+    this.slotController.onPushButton(this.bid);
+    this.ui.moneyTxt.modCounter(-this.bid);
   }
 
 
