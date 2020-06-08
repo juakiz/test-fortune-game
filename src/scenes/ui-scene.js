@@ -2,6 +2,7 @@ import RLC from '../services/responsive-layout-calculator';
 import InfoText from './ui/info-text';
 import CoinsParticle from '../utils/animated-particle.js'
 import BigWinChest from './ui/big-win-chest';
+import PrizesList from './ui/prizes-list';
 
 export default class UIScene extends Phaser.Scene {
   constructor() {
@@ -20,6 +21,9 @@ export default class UIScene extends Phaser.Scene {
     this.chest = new BigWinChest(this, RLC.CENTER_X, RLC.CENTER_Y);
 
     this.createParticles();
+
+    this.prizeList = new PrizesList(this, RLC.CENTER_X, RLC.CENTER_Y);
+    this.prizeList.alpha = 0;
 
     // Resize issue
     this.scale.on('resize', this.onResize, this);
@@ -59,6 +63,11 @@ export default class UIScene extends Phaser.Scene {
       },
       on: false
     });
+  }
+
+  onShowPrizes() {
+    this.prizeList.show();
+    this.input.once('pointerdown', this.prizeList.hide, this.prizeList);
   }
 
   removeListeners() {

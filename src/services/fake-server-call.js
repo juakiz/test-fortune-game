@@ -11,7 +11,7 @@ const SYMBOLS = {
   BLUE: 7,
 };
 
-const SYMBOL_DATA = {
+export const SYMBOL_DATA = {
   VALUES: [],
   WEIGHTS: [],
 };

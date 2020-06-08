@@ -89,14 +89,24 @@ export default class PlayScene extends Phaser.Scene {
     button_front.setPosition(button_bg.x, button_bg.y);
 
     const bidText = createText(this, {
-      x: 60,
-      y: button_bg.y - 100,
+      x: 137,
+      y: 782,
       text: `Bid: ${this.bid}`,
       size: '36px',
-    });
-    bidText.setOrigin(0, 0.5);
+    })
+      .setStroke('#333333', 8);
     this.bidText = bidText;
     bidText.setInteractive();
+
+    const prizesText = createText(this, {
+      x: 137,
+      y: 705,
+      text: 'Prizes',
+      size: '36px',
+    })
+      .setStroke('#333333', 8);
+    this.prizesText = prizesText;
+    prizesText.setInteractive();
 
     // Slots
     const slotFrame = this.add.image(RLC.CENTER_X, 310, 'atlas', 'slot_container.png');
@@ -132,6 +142,7 @@ export default class PlayScene extends Phaser.Scene {
     // }, this);
     button_front.on('pointerdown', this.onPushButton, this);
     bidText.on('pointerdown', this.onChangeBid, this);
+    prizesText.once('pointerdown', this.ui.onShowPrizes, this.ui);
 
     this.dustParticles = this.createDustParticles();
 
@@ -223,7 +234,7 @@ export default class PlayScene extends Phaser.Scene {
       alpha: {
         start: 0.5,
         end: 0,
-        ease: 'Sine.easeOut'
+        ease: 'Sine.easeOut',
       },
       angle: {
         min: -150,
@@ -234,15 +245,15 @@ export default class PlayScene extends Phaser.Scene {
       scale: {
         start: 0.8,
         end: 1.2,
-        ease: 'Sine.easeOut'
+        ease: 'Sine.easeOut',
       },
       speed: {
         min: 30,
-        max: 50
+        max: 50,
       },
       x: {
         min: 0,
-        max: 768
+        max: 768,
       },
       y: {
         ease: 'Linear',

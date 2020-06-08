@@ -114,50 +114,68 @@ export default class SlotController {
     } else {
       this.scene.moneyTxt.modCounter(prize);
       if (winType === MATCH_TYPES.WIN) {
-        ui.infoTxt.setText(`Win: ${prize} kr!`);
-        ui.infoTxt.scaleIn(1400, 100);
-        ui.particles.emitParticle(Math.ceil(prize * 0.05));
+        this.winAnimation(prize);
       } else if (winType === MATCH_TYPES.BIG_WIN) {
-        this.scene.circle.setFillStyle(0xfb0000);
-        this.animating = true;
-        ui.infoTxt.setText(`Big Win:\n${prize} kr!!`);
-        ui.infoTxt.scaleIn(900, 900, 0);
-        setTimeout(
-          (() => {
-            ui.infoTxt.visible = false;
-            ui.chest.show();
-            ui.events.once('animation-end', () => {
-              this.animating = false;
-              ui.infoTxt.visible = true;
-            });
-          }).bind(this),
-          2400,
-        );
+        this.bigWinAnimation(prize);
       } else if (winType === MATCH_TYPES.JACKPOT) {
-        this.scene.circle.setFillStyle(0xfb0000);
-        this.animating = true;
-        ui.infoTxt.setText(`JACKPOT!!!\n${prize}kr`);
-        ui.infoTxt.scaleIn(1800, 900, 0);
-        setTimeout(
-          (() => {
-            this.scene.ui.emitter.setFrequency(80, 1);
-            this.scene.ui.emitter.start();
-          }).bind(this),
-          2700,
-        );
-        setTimeout(
-          (() => {
-            this.animating = false;
-            this.scene.circle.setFillStyle(0x36fe00);
-            this.scene.input.once('pointerdown', () => {
-              this.scene.ui.emitter.setQuantity(9);
-              this.scene.ui.emitter.stop();
-            }, this);
-          }).bind(this),
-          9000,
-        );
+        this.jackpotAnimation(prize);
       }
     }
+  }
+
+  winAnimation(prize) {
+    const { ui } = this.scene;
+
+    ui.infoTxt.setText(`Win: ${prize} kr!`);
+    ui.infoTxt.scaleIn(1400, 100);
+    ui.particles.emitParticle(Math.ceil(prize * 0.05));
+  }
+
+  bigWinAnimation(prize) {
+    const { ui } = this.scene;
+
+    this.scene.circle.setFillStyle(0xfb0000);
+    this.animating = true;
+    ui.infoTxt.setText(`Big Win:\n${prize} kr!!`);
+    ui.infoTxt.scaleIn(900, 900, 0);
+    setTimeout(
+      (() => {
+        ui.infoTxt.visible = false;
+        ui.chest.show();
+        ui.events.once('animation-end', () => {
+          this.animating = false;
+          ui.infoTxt.visible = true;
+        });
+      }).bind(this),
+      2400,
+    );
+  }
+
+  jackpotAnimation(prize) {
+    const { ui } = this.scene;
+
+    this.scene.circle.setFillStyle(0xfb0000);
+    this.animating = true;
+    ui.infoTxt.setText(`JACKPOT!!!\n${prize}kr`);
+    ui.infoTxt.scaleIn(1800, 900, 0);
+    setTimeout(
+      (() => {
+        this.scene.ui.emitter.setFrequency(80, 1);
+        this.scene.ui.emitter.start();
+      }).bind(this),
+      2700,
+    );
+    setTimeout(
+      (() => {
+        this.animating = false;
+        this.scene.circle.setFillStyle(0x36fe00);
+        this.scene.input.once('pointerdown', () => {
+          this.scene.ui.emitter.setQuantity(9);
+          this.scene.ui.emitter.stop();
+        }, this);
+      }).bind(this),
+      9000,
+    );
   }
 
   getWinType(symbols) {

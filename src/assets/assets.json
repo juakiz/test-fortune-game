@@ -4,8 +4,8 @@
 			"image": "assets.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 1730,
-				"h": 1258
+				"w": 1489,
+				"h": 2035
 			},
 			"scale": 1,
 			"frames": [
@@ -31,6 +31,90 @@
 					}
 				},
 				{
+					"filename": "note.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 768,
+						"h": 977
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 0,
+						"w": 761,
+						"h": 977
+					},
+					"frame": {
+						"x": 1,
+						"y": 1027,
+						"w": 761,
+						"h": 977
+					}
+				},
+				{
+					"filename": "slot_light_green.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 204,
+						"h": 198
+					},
+					"spriteSourceSize": {
+						"x": 57,
+						"y": 172,
+						"w": 83,
+						"h": 26
+					},
+					"frame": {
+						"x": 1,
+						"y": 2006,
+						"w": 83,
+						"h": 26
+					}
+				},
+				{
+					"filename": "slot_light_red.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 204,
+						"h": 198
+					},
+					"spriteSourceSize": {
+						"x": 57,
+						"y": 172,
+						"w": 83,
+						"h": 26
+					},
+					"frame": {
+						"x": 86,
+						"y": 2006,
+						"w": 83,
+						"h": 26
+					}
+				},
+				{
+					"filename": "slot_light_yellow.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 204,
+						"h": 198
+					},
+					"spriteSourceSize": {
+						"x": 57,
+						"y": 172,
+						"w": 83,
+						"h": 26
+					},
+					"frame": {
+						"x": 171,
+						"y": 2006,
+						"w": 83,
+						"h": 26
+					}
+				},
+				{
 					"filename": "slot_container.png",
 					"rotated": false,
 					"trimmed": false,
@@ -45,10 +129,31 @@
 						"h": 230
 					},
 					"frame": {
-						"x": 1,
-						"y": 1027,
+						"x": 754,
+						"y": 1,
 						"w": 680,
 						"h": 230
+					}
+				},
+				{
+					"filename": "coins_big/coin-spinning3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 144,
+						"h": 139
+					},
+					"spriteSourceSize": {
+						"x": 54,
+						"y": 0,
+						"w": 50,
+						"h": 139
+					},
+					"frame": {
+						"x": 1436,
+						"y": 1,
+						"w": 50,
+						"h": 139
 					}
 				},
 				{
@@ -67,7 +172,7 @@
 					},
 					"frame": {
 						"x": 754,
-						"y": 1,
+						"y": 233,
 						"w": 349,
 						"h": 344
 					}
@@ -88,9 +193,30 @@
 					},
 					"frame": {
 						"x": 754,
-						"y": 347,
+						"y": 579,
 						"w": 284,
 						"h": 284
+					}
+				},
+				{
+					"filename": "plank_16.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 342,
+						"h": 135
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 342,
+						"h": 135
+					},
+					"frame": {
+						"x": 754,
+						"y": 865,
+						"w": 342,
+						"h": 135
 					}
 				},
 				{
@@ -108,8 +234,8 @@
 						"h": 267
 					},
 					"frame": {
-						"x": 1105,
-						"y": 1,
+						"x": 1040,
+						"y": 579,
 						"w": 297,
 						"h": 267
 					}
@@ -129,136 +255,52 @@
 						"h": 244
 					},
 					"frame": {
-						"x": 754,
-						"y": 633,
+						"x": 1105,
+						"y": 233,
 						"w": 244,
 						"h": 244
 					}
 				},
 				{
-					"filename": "ring.png",
+					"filename": "shine.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 236,
-						"h": 236
+						"w": 163,
+						"h": 90
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 236,
-						"h": 236
-					},
-					"frame": {
-						"x": 1404,
-						"y": 1,
-						"w": 236,
-						"h": 236
-					}
-				},
-				{
-					"filename": "shiny-particles/shiny-particle6.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 206,
-						"h": 206
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 6,
-						"w": 206,
-						"h": 200
-					},
-					"frame": {
-						"x": 754,
-						"y": 879,
-						"w": 206,
-						"h": 200
-					}
-				},
-				{
-					"filename": "shiny-particles/shiny-particle3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 206,
-						"h": 206
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 4,
-						"w": 205,
-						"h": 202
+						"w": 163,
+						"h": 90
 					},
 					"frame": {
 						"x": 1105,
-						"y": 270,
-						"w": 205,
-						"h": 202
+						"y": 479,
+						"w": 163,
+						"h": 90
 					}
 				},
 				{
-					"filename": "shiny-particles/shiny-particle4.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 206,
-						"h": 206
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 204,
-						"h": 203
-					},
-					"frame": {
-						"x": 1040,
-						"y": 474,
-						"w": 204,
-						"h": 203
-					}
-				},
-				{
-					"filename": "slot_frame.png",
+					"filename": "smoke.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 204,
-						"h": 198
+						"w": 78,
+						"h": 77
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 204,
-						"h": 198
+						"w": 78,
+						"h": 77
 					},
 					"frame": {
-						"x": 1000,
-						"y": 679,
-						"w": 204,
-						"h": 198
-					}
-				},
-				{
-					"filename": "shiny-particles/shiny-particle5.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 206,
-						"h": 206
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 1,
-						"w": 202,
-						"h": 205
-					},
-					"frame": {
-						"x": 962,
-						"y": 879,
-						"w": 202,
-						"h": 205
+						"x": 1270,
+						"y": 479,
+						"w": 78,
+						"h": 77
 					}
 				},
 				{
@@ -276,10 +318,283 @@
 						"h": 202
 					},
 					"frame": {
-						"x": 1312,
-						"y": 270,
+						"x": 1350,
+						"y": 479,
 						"w": 138,
 						"h": 202
+					}
+				},
+				{
+					"filename": "symbols/rainbow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 135,
+						"h": 150
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 135,
+						"h": 150
+					},
+					"frame": {
+						"x": 1351,
+						"y": 233,
+						"w": 135,
+						"h": 150
+					}
+				},
+				{
+					"filename": "symbols/violet.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 146,
+						"h": 148
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 146,
+						"h": 148
+					},
+					"frame": {
+						"x": 1339,
+						"y": 683,
+						"w": 146,
+						"h": 148
+					}
+				},
+				{
+					"filename": "coins_big/coin-spinning0.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 144,
+						"h": 139
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 144,
+						"h": 139
+					},
+					"frame": {
+						"x": 1339,
+						"y": 833,
+						"w": 144,
+						"h": 139
+					}
+				},
+				{
+					"filename": "ring.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 236,
+						"h": 236
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 236,
+						"h": 236
+					},
+					"frame": {
+						"x": 1098,
+						"y": 848,
+						"w": 236,
+						"h": 236
+					}
+				},
+				{
+					"filename": "symbols/orange.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 144,
+						"h": 139
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 144,
+						"h": 139
+					},
+					"frame": {
+						"x": 1336,
+						"y": 974,
+						"w": 144,
+						"h": 139
+					}
+				},
+				{
+					"filename": "shiny-particles/shiny-particle4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 206,
+						"h": 206
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 204,
+						"h": 203
+					},
+					"frame": {
+						"x": 764,
+						"y": 1002,
+						"w": 204,
+						"h": 203
+					}
+				},
+				{
+					"filename": "coins_big/coin-spinning4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 144,
+						"h": 139
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 0,
+						"w": 117,
+						"h": 139
+					},
+					"frame": {
+						"x": 970,
+						"y": 1002,
+						"w": 117,
+						"h": 139
+					}
+				},
+				{
+					"filename": "shiny-particles/shiny-particle3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 206,
+						"h": 206
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 205,
+						"h": 202
+					},
+					"frame": {
+						"x": 1089,
+						"y": 1086,
+						"w": 205,
+						"h": 202
+					}
+				},
+				{
+					"filename": "coins_big/coin-spinning2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 144,
+						"h": 139
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 0,
+						"w": 106,
+						"h": 139
+					},
+					"frame": {
+						"x": 970,
+						"y": 1143,
+						"w": 106,
+						"h": 139
+					}
+				},
+				{
+					"filename": "shiny-particles/shiny-particle5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 206,
+						"h": 206
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 202,
+						"h": 205
+					},
+					"frame": {
+						"x": 764,
+						"y": 1207,
+						"w": 202,
+						"h": 205
+					}
+				},
+				{
+					"filename": "symbols/red.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 109,
+						"h": 122
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 109,
+						"h": 122
+					},
+					"frame": {
+						"x": 968,
+						"y": 1284,
+						"w": 109,
+						"h": 122
+					}
+				},
+				{
+					"filename": "shiny-particles/shiny-particle0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 206,
+						"h": 206
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 184,
+						"h": 206
+					},
+					"frame": {
+						"x": 1296,
+						"y": 1115,
+						"w": 184,
+						"h": 206
+					}
+				},
+				{
+					"filename": "shiny-particles/shiny-particle6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 206,
+						"h": 206
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 6,
+						"w": 206,
+						"h": 200
+					},
+					"frame": {
+						"x": 1079,
+						"y": 1290,
+						"w": 206,
+						"h": 200
 					}
 				},
 				{
@@ -297,8 +612,8 @@
 						"h": 204
 					},
 					"frame": {
-						"x": 1246,
-						"y": 474,
+						"x": 1287,
+						"y": 1323,
 						"w": 200,
 						"h": 204
 					}
@@ -318,31 +633,10 @@
 						"h": 206
 					},
 					"frame": {
-						"x": 1452,
-						"y": 239,
+						"x": 764,
+						"y": 1414,
 						"w": 198,
 						"h": 206
-					}
-				},
-				{
-					"filename": "flare.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 200
-					},
-					"spriteSourceSize": {
-						"x": 1,
-						"y": 1,
-						"w": 199,
-						"h": 199
-					},
-					"frame": {
-						"x": 1206,
-						"y": 680,
-						"w": 199,
-						"h": 199
 					}
 				},
 				{
@@ -360,30 +654,9 @@
 						"h": 206
 					},
 					"frame": {
-						"x": 1166,
-						"y": 881,
+						"x": 964,
+						"y": 1492,
 						"w": 198,
-						"h": 206
-					}
-				},
-				{
-					"filename": "shiny-particles/shiny-particle0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 206,
-						"h": 206
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 184,
-						"h": 206
-					},
-					"frame": {
-						"x": 1366,
-						"y": 881,
-						"w": 184,
 						"h": 206
 					}
 				},
@@ -402,94 +675,73 @@
 						"h": 198
 					},
 					"frame": {
-						"x": 1407,
-						"y": 680,
+						"x": 764,
+						"y": 1622,
 						"w": 190,
 						"h": 198
 					}
 				},
 				{
-					"filename": "symbols/violet.png",
+					"filename": "symbols/silver.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 146,
-						"h": 148
+						"w": 120,
+						"h": 131
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 146,
-						"h": 148
+						"w": 120,
+						"h": 131
 					},
 					"frame": {
-						"x": 683,
-						"y": 1081,
-						"w": 146,
-						"h": 148
+						"x": 1164,
+						"y": 1492,
+						"w": 120,
+						"h": 131
 					}
 				},
 				{
-					"filename": "coins_big/coin-spinning4.png",
+					"filename": "flare.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 144,
-						"h": 139
+						"w": 200,
+						"h": 200
 					},
 					"spriteSourceSize": {
-						"x": 13,
-						"y": 0,
-						"w": 117,
-						"h": 139
+						"x": 1,
+						"y": 1,
+						"w": 199,
+						"h": 199
 					},
 					"frame": {
-						"x": 831,
-						"y": 1081,
-						"w": 117,
-						"h": 139
+						"x": 1286,
+						"y": 1529,
+						"w": 199,
+						"h": 199
 					}
 				},
 				{
-					"filename": "coins_big/coin-spinning0.png",
+					"filename": "slot_frame.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 144,
-						"h": 139
+						"w": 204,
+						"h": 198
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 144,
-						"h": 139
+						"w": 204,
+						"h": 198
 					},
 					"frame": {
-						"x": 950,
-						"y": 1086,
-						"w": 144,
-						"h": 139
-					}
-				},
-				{
-					"filename": "symbols/orange.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 144,
-						"h": 139
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 144,
-						"h": 139
-					},
-					"frame": {
-						"x": 1096,
-						"y": 1089,
-						"w": 144,
-						"h": 139
+						"x": 956,
+						"y": 1700,
+						"w": 204,
+						"h": 198
 					}
 				},
 				{
@@ -507,94 +759,31 @@
 						"h": 139
 					},
 					"frame": {
-						"x": 1242,
-						"y": 1089,
+						"x": 764,
+						"y": 1822,
 						"w": 137,
 						"h": 139
 					}
 				},
 				{
-					"filename": "symbols/rainbow.png",
+					"filename": "plank_17.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 135,
-						"h": 150
+						"w": 342,
+						"h": 134
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 135,
-						"h": 150
+						"w": 342,
+						"h": 134
 					},
 					"frame": {
-						"x": 1381,
-						"y": 1089,
-						"w": 135,
-						"h": 150
-					}
-				},
-				{
-					"filename": "coins_big/coin-spinning3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 144,
-						"h": 139
-					},
-					"spriteSourceSize": {
-						"x": 54,
-						"y": 0,
-						"w": 50,
-						"h": 139
-					},
-					"frame": {
-						"x": 1642,
-						"y": 1,
-						"w": 50,
-						"h": 139
-					}
-				},
-				{
-					"filename": "shine.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 163,
-						"h": 90
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 163,
-						"h": 90
-					},
-					"frame": {
-						"x": 1452,
-						"y": 447,
-						"w": 163,
-						"h": 90
-					}
-				},
-				{
-					"filename": "coins_big/coin-spinning2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 144,
-						"h": 139
-					},
-					"spriteSourceSize": {
-						"x": 15,
-						"y": 0,
-						"w": 106,
-						"h": 139
-					},
-					"frame": {
-						"x": 1448,
-						"y": 539,
-						"w": 106,
-						"h": 139
+						"x": 903,
+						"y": 1900,
+						"w": 342,
+						"h": 134
 					}
 				},
 				{
@@ -612,8 +801,8 @@
 						"h": 136
 					},
 					"frame": {
-						"x": 1556,
-						"y": 539,
+						"x": 1162,
+						"y": 1730,
 						"w": 135,
 						"h": 136
 					}
@@ -633,8 +822,8 @@
 						"h": 133
 					},
 					"frame": {
-						"x": 1599,
-						"y": 677,
+						"x": 1247,
+						"y": 1868,
 						"w": 130,
 						"h": 133
 					}
@@ -654,136 +843,10 @@
 						"h": 130
 					},
 					"frame": {
-						"x": 1599,
-						"y": 812,
+						"x": 1299,
+						"y": 1730,
 						"w": 130,
 						"h": 130
-					}
-				},
-				{
-					"filename": "symbols/silver.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 120,
-						"h": 131
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 120,
-						"h": 131
-					},
-					"frame": {
-						"x": 1552,
-						"y": 944,
-						"w": 120,
-						"h": 131
-					}
-				},
-				{
-					"filename": "symbols/red.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 109,
-						"h": 122
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 109,
-						"h": 122
-					},
-					"frame": {
-						"x": 1518,
-						"y": 1089,
-						"w": 109,
-						"h": 122
-					}
-				},
-				{
-					"filename": "smoke.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 78,
-						"h": 77
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 78,
-						"h": 77
-					},
-					"frame": {
-						"x": 1642,
-						"y": 142,
-						"w": 78,
-						"h": 77
-					}
-				},
-				{
-					"filename": "slot_light_green.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 204,
-						"h": 198
-					},
-					"spriteSourceSize": {
-						"x": 57,
-						"y": 172,
-						"w": 83,
-						"h": 26
-					},
-					"frame": {
-						"x": 683,
-						"y": 1231,
-						"w": 83,
-						"h": 26
-					}
-				},
-				{
-					"filename": "slot_light_red.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 204,
-						"h": 198
-					},
-					"spriteSourceSize": {
-						"x": 57,
-						"y": 172,
-						"w": 83,
-						"h": 26
-					},
-					"frame": {
-						"x": 1518,
-						"y": 1213,
-						"w": 83,
-						"h": 26
-					}
-				},
-				{
-					"filename": "slot_light_yellow.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 204,
-						"h": 198
-					},
-					"spriteSourceSize": {
-						"x": 57,
-						"y": 172,
-						"w": 83,
-						"h": 26
-					},
-					"frame": {
-						"x": 831,
-						"y": 1222,
-						"w": 83,
-						"h": 26
 					}
 				}
 			]
@@ -792,6 +855,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:e6d2112585a890b4e38515c2a17f8145:cec7b54bb86d9d9810ed824198d15ef0:a759b6bbc8381ac9c472b28f589ad0d6$"
+		"smartupdate": "$TexturePacker:SmartUpdate:a1ea3109e70d49ee57e1f32c7b02cfa3:93ac65ffaa69f44928d36d73ca5cb615:a759b6bbc8381ac9c472b28f589ad0d6$"
 	}
 }
