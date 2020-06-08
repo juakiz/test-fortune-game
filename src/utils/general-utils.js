@@ -35,6 +35,12 @@ export const createText = (scene, config) => {
   return txt;
 }
 
+export const setTextGradient = (text, gradientData) => {
+  var gradient = text.context.createLinearGradient(0, 0, 0, text.displayHeight);
+  gradientData.forEach(element => { gradient.addColorStop(element.percent, element.color); });
+  text.setFill(gradient);
+}
+
 // export const traceImage = (scene, imageKey, jsonKey, simplifyThreshold = 33) => {
 //   const image = scene.textures.get(imageKey).source[0].image;
 

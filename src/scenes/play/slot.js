@@ -14,14 +14,6 @@ export default class Slot extends Phaser.GameObjects.Image {
     this.bg_white.alpha = 0;
     this.light = this.scene.add.image(this.x, this.y, 'atlas', 'slot_light_yellow.png');
     this.symbol = this.scene.add.image(this.x, this.y, 'atlas', this.getRandomSymbolKey());
-
-    // this.scene.time.addEvent({
-    //   delay: 10,
-    // });
-
-    // this.spin();
-    // setTimeout(900, this.stopSpin.bind(this));
-
   }
 
   spin() {
@@ -43,6 +35,7 @@ export default class Slot extends Phaser.GameObjects.Image {
 
   stopSpin(symbolindex) {
     this.spinning = false;
+
     if (typeof symbolindex !== 'undefined')
       this.nextSymbol = `symbols/${SYMBOLS[symbolindex]}`;
   }
@@ -62,20 +55,20 @@ export default class Slot extends Phaser.GameObjects.Image {
       console.warn('Slot.js: Not valid light index.')
   }
 
-  flash() {
-    // if (typeof this.flashTwn !== 'undefined' && this.flashTwn.isPlaying) this.flashTwn.stop();
-
-    this.flashTwn = this.scene.tweens.add({
+  flash(repeat = 0) {
+    this.scene.tweens.add({
       targets: this.bg_white,
       alpha: { from: 1, to: 0 },
-      duration: 200,
+      duration: 300,
+      repeat,
     });
 
-    this.scaleTwn = this.scene.tweens.add({
+    this.scene.tweens.add({
       targets: this.symbol,
       scaleX: { from: 1.1, to: 1 },
       scaleY: { from: 1.1, to: 1 },
       duration: 300,
+      repeat,
     });
   }
 

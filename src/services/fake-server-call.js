@@ -61,14 +61,14 @@ const calculatePrize = function (symbols, bet) {
   if (match.count === 1 && match.type !== SYMBOLS.RAINBOW) {
     price = SYMBOL_DATA.VALUES[match.type] * bet;
   } else if (match.count === 2) {
-    price = SYMBOL_DATA.VALUES[match.type] * 4 * bet;
+    price = SYMBOL_DATA.VALUES[match.type] * 6 * bet;
   }
 
   return price;
 }
 
-export default function (bet) {
-  const symbols = randomizeSymbols();
+export default function (bet, forceResult) {
+  const symbols = forceResult || randomizeSymbols();
   const prize = calculatePrize(symbols, bet);
   const result = Math.random() > 0.01 ? { symbols, prize } : Error('(Server) This is fake error ;).');
   return result;

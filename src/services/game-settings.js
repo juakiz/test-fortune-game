@@ -16,4 +16,4 @@ export const COLOR_LOADINGBAR_OUTLINE = Phaser.Display.Color.HexStringToColor('#
 // Gameplay
 export const MAX_SERVER_DELAY = 400;
 export const INITIAL_MONEY = 2500;
-export const INITIAL_BID = 50;
+export const INITIAL_BID_INDEX = 0;

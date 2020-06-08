@@ -1,6 +1,6 @@
 export default class Counter extends Phaser.GameObjects.Text {
   constructor(scene, initialAmount, cfg = {}) {
-    super(scene, 0, 0, '', cfg.style || {});
+    super(scene, cfg.x || 0, cfg.y || 0, '', cfg.style || {});
     scene.add.existing(this);
 
     this.amount = this.displayAmount = initialAmount;
@@ -35,7 +35,6 @@ export default class Counter extends Phaser.GameObjects.Text {
       if (this.resize) this.resize();
     }
 
-    // // Allow different origin than 0.5
     // const scaleMod = 1.08;
     // const originOffset = {
     // 	x0: this.x,

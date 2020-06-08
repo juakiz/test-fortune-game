@@ -7,20 +7,22 @@ export default class SlotController {
     this.scene = playScene;
 
     this.waiting = false;
+    this.forceResult = false;
   }
 
-  onPushButton(bet) {
+  onPushButton(bid) {
     if (this.waiting) return;
 
     new Promise((resolve, reject) => {
       this.waiting = true;
       this.startSpin();
       const fakeServerResponse = () => {
-        const result = fakeServerCall(bet);
+        const result = fakeServerCall(bid, this.forceResult);
         if (typeof result.symbols !== 'undefined' && typeof result.prize !== 'undefined')
           resolve(result);
-        else
-          reject(result);
+        else {
+          reject({ err: result, bid });
+        }
         this.waiting = false;
       }
       setTimeout(fakeServerResponse.bind(this), 20 + Math.random() * MAX_SERVER_DELAY);
@@ -30,26 +32,24 @@ export default class SlotController {
 
   onResolve(result) {
     console.log(result);
-    this.scene.ui.moneyTxt.modCounter(result.prize);
     this.stopSpin(result);
   }
 
-  onReject(err) {
-    console.log(err);
-    this.stopSpin();
+  onReject(errorData) {
+    alert('[Info]: Simulated server error, bid refund.')
+    console.log(errorData.err);
+    this.scene.slots.forEach((slot, i, arr) => {
+      slot.stopSpin();
+    });
+    this.scene.ui.infoTxt.readyText();
+    this.scene.ui.moneyTxt.modCounter(errorData.bid);
+    this.scene.circle.setFillStyle(0x36fe00);
+    this.spinning = false;
+
   }
 
   startSpin() {
     this.spinning = true;
-    // this.scene.time.addEvent({
-    //   delay: 20,
-    //   callBack: (() => {
-    //     this.scene.slots.forEach(slot => {
-    //       slot.setRandomSymbol();
-    //     });
-    //   }).bind(this),
-    // });
-
     this.scene.slots.forEach(slot => {
       slot.spin();
       slot.setLight(0);
@@ -57,16 +57,6 @@ export default class SlotController {
   }
 
   stopSpin(result) {
-    // this.spinning = false; // TODO: BE CAREFUL WITH THIS (PUT WHEN USER IS READY TO NEW SPIN)
-    // if (typeof result !== 'undefined') {
-    //   this.scene.slots.forEach((slot, i, arr) => {
-    //     slot.setSymbol(result.symbols[i]);
-    //   });
-    // } else {
-    //   this.scene.ui.moneyTxt.modCounter(this.scene.bid);
-    // }
-    // this.scene.circle.setFillStyle(0x36fe00); // TODO: REMOVE THIS, TEMPORAL
-
     let delay;
     this.scene.slots.forEach((slot, i, arr) => {
       delay = 600 * i + Math.random() * 200 * i;
@@ -81,23 +71,23 @@ export default class SlotController {
             arr[i - 1].flash();
           } else if (matchType === MATCH_TYPES.BIG_WIN) {
             slot.setLight(2);
-            slot.flash();
-            arr[i - 2].flash();
-            arr[i - 1].flash();
+            slot.flash(5);
+            arr[i - 2].flash(5);
+            arr[i - 1].flash(5);
+          } else if (matchType === MATCH_TYPES.JACKPOT) {
+            alert('JACKPOT!!!');
+            slot.flash(20);
+            arr[i - 2].flash(20);
+            arr[i - 1].flash(20);
           }
+
+          // Last Slot?
+          if (i === 2)
+            this.setPrize(result);
         },
-        // slot.stopSpin.bind(slot, result.symbols[i]),
         delay,
       );
     });
-
-    setTimeout(
-      () => {
-        this.scene.circle.setFillStyle(0x36fe00);
-        this.spinning = false;
-      },
-      delay,
-    );
   }
 
   getMatchType(symbols, index) {
@@ -116,11 +106,56 @@ export default class SlotController {
     return winType;
   }
 
+  setPrize(result) {
+    this.spinning = false;
+    const { symbols, prize } = result;
+    const { ui } = this.scene;
+    const winType = this.getWinType(symbols);
+
+    if (prize === 0) {
+      ui.infoTxt.readyText();
+    } else {
+      ui.moneyTxt.modCounter(prize);
+      if (winType === MATCH_TYPES.WIN) {
+        ui.infoTxt.setText(`Win: ${prize} kr!`);
+        ui.infoTxt.scaleIn(1400, 100);
+        ui.particles.emitParticle(Math.ceil(prize * 0.05));
+      } else if (winType === MATCH_TYPES.BIG_WIN) {
+        this.animating = true;
+        ui.infoTxt.setText(`Big Win:\n${prize} kr!!`);
+        ui.infoTxt.scaleIn(900, 900, 0);
+        setTimeout(
+          (() => {
+            ui.infoTxt.visible = false;
+            ui.chest.show();
+            ui.events.once('animation-end', () => {
+              this.animating = false;
+              ui.infoTxt.visible = true;
+            });
+          }).bind(this),
+          2400,
+        );
+      }
+    }
+    this.scene.circle.setFillStyle(0x36fe00);
+  }
+
+  getWinType(symbols) {
+    symbols.sort();
+    let prev;
+    let count = 0;
+    for (let i = 0; i < symbols.length; i++) {
+      if (symbols[i] === prev)
+        count++;
+      prev = symbols[i];
+    }
+
+    if (count === 2 && prev === 0)
+      count++;
+
+    return count;
+  }
+
   update() {
-    // if (this.spinning) {
-    //   this.scene.slots.forEach(slot => {
-    //     slot.setRandomSymbol();
-    //   });
-    // }
   }
 }
