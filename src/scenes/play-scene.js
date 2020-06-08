@@ -4,6 +4,7 @@ import { createText } from '../utils/general-utils';
 import Slot from './play/slot';
 import SlotController from '../services/slot-controller';
 import { BID_AMOUNTS } from '../services/globals';
+import { SYMBOLS } from '../services/assets-data';
 
 export default class PlayScene extends Phaser.Scene {
   constructor() {
@@ -12,7 +13,7 @@ export default class PlayScene extends Phaser.Scene {
 
   create() {
     this.mainCam = this.cameras.main;
-    this.mainCam.fadeIn(200);
+    this.mainCam.fadeIn(900);
 
     // BG Scene
     this.scene.launch('BGScene', { playScene: this });
@@ -85,12 +86,17 @@ export default class PlayScene extends Phaser.Scene {
     // this.events.on('event', this.onEvent, this);
 
     // DEBUG
-    var keyObj = this.keyObj = this.input.keyboard.addKey('W');  // debug
+    // JACKPOT
+    var keyObj = this.keyObj = this.input.keyboard.addKey('Q');
     keyObj.on('down', function (event) {
-      // this.ui.particles.emitParticleAt(RLC.CENTER_X, RLC.CENTER_Y, 16);
-      // this.add.sprite().setPosition(500, 500).play('coin');
-      // this.events.emit('event');
-      this.slotController.forceResult = [7, 7, 7];
+      this.startSpin(50, [0, 0, 0])
+    }, this);
+
+    // BIG WIN
+    var keyObj = this.keyObj = this.input.keyboard.addKey('W');
+    keyObj.on('down', function (event) {
+      const index = Phaser.Math.Between(1, SYMBOLS.length - 1);
+      this.startSpin(50, [index, index, index])
     }, this);
 
     // INPUT
@@ -99,9 +105,28 @@ export default class PlayScene extends Phaser.Scene {
     button_front.on('pointerdown', this.onPushButton, this);
     bidText.on('pointerdown', this.onChangeBid, this);
 
+
     // Resize
     this.scale.on('resize', this.onResize, this);
     this.onResize();
+
+    console.log(this.mainCam.x, this.mainCam.y);
+    this.mainCam.setPosition(0, -1024);
+    this.tweens.add({
+      targets: this.mainCam,
+      y: 0,
+      ease: 'Quad.easeIn',
+      duration: 1800,
+      onComplete: (() => {
+        this.ui.infoTxt.readyText();
+        this.ui.infoTxt.alpha = 0;
+        this.tweens.add({
+          targets: [this.ui.infoTxt, this.ui.moneyTxt],
+          alpha: 1,
+          duration: 600,
+        });
+      }).bind(this),
+    });
   }
 
   removeListeners() {
@@ -125,27 +150,31 @@ export default class PlayScene extends Phaser.Scene {
   }
 
   onPushButton() {
+    if (this.balance - this.bid >= 0) {
+      this.startSpin(this.bid);
+    } else {
+      this.ui.infoTxt.setText('Not enough\ncredit :(');
+    }
+  }
+
+  startSpin(bid, forceResult = false) {
     const { circle, button_front, ui, slotController } = this;
     const { moneyTxt, infoTxt } = ui;
-    
+
     if (slotController.spinning || slotController.animating) return;
 
-    if (this.balance - this.bid >= 0) {
-      slotController.onPushButton(this.bid);
-      moneyTxt.modCounter(-this.bid);
-      infoTxt.dotsAnimStart();
+    slotController.onPushButton(bid, forceResult);
+    moneyTxt.modCounter(-bid);
+    infoTxt.dotsAnimStart();
 
-      button_front.setScale(0.96, 0.96);
-      circle.setFillStyle(0xfb0000);
-      this.time.addEvent({
-        delay: 100,
-        callback: (() => {
-          button_front.setScale(1, 1);
-        }).bind(this),
-      });
-    } else {
-      infoTxt.setText('Not enough\ncredit :(');
-    }
+    button_front.setScale(0.96, 0.96);
+    circle.setFillStyle(0xfb0000);
+    this.time.addEvent({
+      delay: 100,
+      callback: (() => {
+        button_front.setScale(1, 1);
+      }).bind(this),
+    });
   }
 
   onChangeBid() {

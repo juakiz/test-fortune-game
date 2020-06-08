@@ -11,6 +11,8 @@ export default class InfoText extends Phaser.GameObjects.Container {
       const text = createText(scene, { size: '84px' });
       text.setStroke('#333333', 12);
 
+      text.visible = false;
+
       text.y = vPos;
 
       setTextGradient(text, [
@@ -25,7 +27,7 @@ export default class InfoText extends Phaser.GameObjects.Container {
       return text;
     });
 
-    this.readyText();
+    // this.readyText();
   }
 
   readyText() {

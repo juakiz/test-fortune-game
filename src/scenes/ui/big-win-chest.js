@@ -3,11 +3,33 @@ export default class BigWinChest extends Phaser.GameObjects.Image {
   constructor(scene, x, y) {
     super(scene, x, y, 'atlas', 'chest-closed.png');
     scene.add.existing(this);
-
+    
     this.alpha = 0;
 
     this.particleManager = this.createParticles();
   }
+
+  // ringAndFlare() {
+  //   this.flare = this.scene.add.image(this.x, this.y, 'atlas', 'flare.png');
+  //   this.ring = this.scene.add.image(this.x, this.y, 'atlas', 'ring.png');
+
+  //   this.scene.tweens.add({
+  //     targets: [this.ring, this.flare],
+  //     angle: 360,
+  //     duration: 3600,
+  //     repeat: -1,
+  //   });
+
+  //   this.scene.tweens.add({
+  //     targets: this.flare,
+  //     scaleX: 2.5,
+  //     scaleY: 2.5,
+  //     duration: 2400,
+  //     repeat: -1,
+  //     yoyo: true,
+  //     ease: 'Sine.easeInOut'
+  //   });
+  // }
 
   show() {
     this.scene.tweens.add({
@@ -59,6 +81,7 @@ export default class BigWinChest extends Phaser.GameObjects.Image {
 
   open() {
     this.shakeTwn.stop();
+    this.scene.playScene.circle.setFillStyle(0x36fe00);
     this.scene.mainCam.fadeIn(300, 255, 255, 255);
     this.setTexture('atlas', 'chest-open.png');
     this.scene.input.once('pointerdown', () => {

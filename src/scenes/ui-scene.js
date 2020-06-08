@@ -38,6 +38,8 @@ export default class UIScene extends Phaser.Scene {
       .setShadow(0, 3, '#808080', 11, false, true)
       .setPadding({ x: 6, y: 6 });
 
+    this.moneyTxt.alpha = 0;
+
     setTextGradient(this.moneyTxt, [
       { percent: 0.1, color: '#feec4e' },
       { percent: 0.4, color: '#fde301' },
@@ -80,7 +82,7 @@ export default class UIScene extends Phaser.Scene {
 
     this.particles = this.add.particles();
     this.particles.defaultFrame = CoinsParticle.anim.frames[0].frame;
-    this.particles.createEmitter({
+    this.emitter = this.particles.createEmitter({
       x: RLC.CENTER_X,
       y: RLC.CENTER_Y,
       particleClass: CoinsParticle,

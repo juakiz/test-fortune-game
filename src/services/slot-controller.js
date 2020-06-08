@@ -7,17 +7,16 @@ export default class SlotController {
     this.scene = playScene;
 
     this.waiting = false;
-    this.forceResult = false;
   }
 
-  onPushButton(bid) {
+  onPushButton(bid, forceResult) {
     if (this.waiting) return;
 
     new Promise((resolve, reject) => {
       this.waiting = true;
       this.startSpin();
       const fakeServerResponse = () => {
-        const result = fakeServerCall(bid, this.forceResult);
+        const result = fakeServerCall(bid, forceResult);
         if (typeof result.symbols !== 'undefined' && typeof result.prize !== 'undefined')
           resolve(result);
         else {
@@ -31,7 +30,6 @@ export default class SlotController {
   }
 
   onResolve(result) {
-    console.log(result);
     this.stopSpin(result);
   }
 
@@ -45,7 +43,6 @@ export default class SlotController {
     this.scene.ui.moneyTxt.modCounter(errorData.bid);
     this.scene.circle.setFillStyle(0x36fe00);
     this.spinning = false;
-
   }
 
   startSpin() {
@@ -75,7 +72,6 @@ export default class SlotController {
             arr[i - 2].flash(5);
             arr[i - 1].flash(5);
           } else if (matchType === MATCH_TYPES.JACKPOT) {
-            alert('JACKPOT!!!');
             slot.flash(20);
             arr[i - 2].flash(20);
             arr[i - 1].flash(20);
@@ -110,6 +106,7 @@ export default class SlotController {
     this.spinning = false;
     const { symbols, prize } = result;
     const { ui } = this.scene;
+    this.scene.circle.setFillStyle(0x36fe00);
     const winType = this.getWinType(symbols);
 
     if (prize === 0) {
@@ -121,6 +118,7 @@ export default class SlotController {
         ui.infoTxt.scaleIn(1400, 100);
         ui.particles.emitParticle(Math.ceil(prize * 0.05));
       } else if (winType === MATCH_TYPES.BIG_WIN) {
+        this.scene.circle.setFillStyle(0xfb0000);
         this.animating = true;
         ui.infoTxt.setText(`Big Win:\n${prize} kr!!`);
         ui.infoTxt.scaleIn(900, 900, 0);
@@ -135,9 +133,31 @@ export default class SlotController {
           }).bind(this),
           2400,
         );
+      } else if (winType === MATCH_TYPES.JACKPOT) {
+        this.scene.circle.setFillStyle(0xfb0000);
+        this.animating = true;
+        ui.infoTxt.setText(`JACKPOT!!!\n${prize}kr`);
+        ui.infoTxt.scaleIn(1800, 900, 0);
+        setTimeout(
+          (() => {
+            this.scene.ui.emitter.setFrequency(80, 1);
+            this.scene.ui.emitter.start();
+          }).bind(this),
+          2700,
+        );
+        setTimeout(
+          (() => {
+            this.animating = false;
+            this.scene.circle.setFillStyle(0x36fe00);
+            this.scene.input.once('pointerdown', () => {
+              this.scene.ui.emitter.setQuantity(9);
+              this.scene.ui.emitter.stop();
+            }, this);
+          }).bind(this),
+          9000,
+        );
       }
     }
-    this.scene.circle.setFillStyle(0x36fe00);
   }
 
   getWinType(symbols) {
