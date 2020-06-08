@@ -1,7 +1,4 @@
 import RLC from '../services/responsive-layout-calculator';
-import { FONT_FAMILY, FONT_COLOR, FONT_STROKE_COLOR, INITIAL_MONEY } from '../services/game-settings';
-import Counter from '../utils/counter-txt';
-import { setTextGradient } from '../utils/general-utils';
 import InfoText from './ui/info-text';
 import CoinsParticle from '../utils/animated-particle.js'
 import BigWinChest from './ui/big-win-chest';
@@ -13,38 +10,10 @@ export default class UIScene extends Phaser.Scene {
 
   create(data) {
     this.mainCam = this.cameras.main;
-    this.mainCam.fadeIn(200);
+    this.mainCam.fadeIn(600);
 
     this.playScene = data.playScene;
     // Inside view GO
-
-    // Money counter
-    this.moneyTxt = new Counter(this, INITIAL_MONEY, {
-      x: RLC.CENTER_X + 205,
-      y: 132,
-      duration: 5,
-      durationPerUnit: true,
-      suffix: ' kr',
-      style: {
-        fontSize: '46px',
-        fontFamily: FONT_FAMILY,
-        color: FONT_COLOR,
-        stroke: FONT_STROKE_COLOR,
-        strokeThickness: 8,
-      },
-    })
-      .setOrigin(1, 0.5)
-      .setStyle({ fontFamily: 'OSWALDblack', fontSize: '86px' })
-      .setShadow(0, 3, '#808080', 11, false, true)
-      .setPadding({ x: 6, y: 6 });
-
-    this.moneyTxt.alpha = 0;
-
-    setTextGradient(this.moneyTxt, [
-      { percent: 0.1, color: '#feec4e' },
-      { percent: 0.4, color: '#fde301' },
-      { percent: 0.8, color: '#f0b809' },
-    ]);
 
     this.infoTxt = new InfoText(this, RLC.CENTER_X, RLC.CENTER_Y + 25);
 
@@ -52,17 +21,9 @@ export default class UIScene extends Phaser.Scene {
 
     this.createParticles();
 
-    // Events
-    this.events.on('add-points', this.setScore, this);
-
     // Resize issue
     this.scale.on('resize', this.onResize, this);
     this.onResize();
-  }
-
-  setScore() {
-    const points = 10 + Math.floor(this.playScene.RWM.player.y / 10);
-    this.moneyTxt.modCounter(points);
   }
 
   createParticles() {
@@ -98,10 +59,6 @@ export default class UIScene extends Phaser.Scene {
       },
       on: false
     });
-  }
-
-  bigWinAnimation() {
-
   }
 
   removeListeners() {

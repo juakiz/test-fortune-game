@@ -1,8 +1,10 @@
 import RLC from '../services/responsive-layout-calculator';
-import { INITIAL_BID_INDEX, FONT_STROKE_COLOR } from '../services/game-settings';
+import { INITIAL_BID_INDEX, FONT_FAMILY, FONT_STROKE_COLOR, INITIAL_MONEY, FONT_COLOR } from '../services/game-settings';
+import { setTextGradient } from '../utils/general-utils';
 import { createText } from '../utils/general-utils';
 import Slot from './play/slot';
 import SlotController from '../services/slot-controller';
+import Counter from '../utils/counter-txt';
 import { BID_AMOUNTS } from '../services/globals';
 import { SYMBOLS } from '../services/assets-data';
 
@@ -13,7 +15,7 @@ export default class PlayScene extends Phaser.Scene {
 
   create() {
     this.mainCam = this.cameras.main;
-    this.mainCam.fadeIn(900);
+    // this.mainCam.fadeIn(900);
 
     // BG Scene
     this.scene.launch('BGScene', { playScene: this });
@@ -32,9 +34,35 @@ export default class PlayScene extends Phaser.Scene {
     this.bid = BID_AMOUNTS[this.bidIndex];
 
     // Game Objects
+    // Money counter
     const m_frame = this.add.image(0, 0, 'atlas', 'm_frame.png');
     m_frame.x = RLC.CENTER_X;
     m_frame.y = RLC.CENTER_Y;
+
+    this.moneyTxt = new Counter(this, INITIAL_MONEY, {
+      x: RLC.CENTER_X + 205,
+      y: 132,
+      duration: 5,
+      durationPerUnit: true,
+      suffix: ' kr',
+      style: {
+        fontSize: '46px',
+        fontFamily: FONT_FAMILY,
+        color: FONT_COLOR,
+        stroke: FONT_STROKE_COLOR,
+        strokeThickness: 8,
+      },
+    })
+      .setOrigin(1, 0.5)
+      .setStyle({ fontFamily: 'OSWALDblack', fontSize: '86px' })
+      .setShadow(0, 3, '#808080', 11, false, true)
+      .setPadding({ x: 6, y: 6 });
+
+    setTextGradient(this.moneyTxt, [
+      { percent: 0.1, color: '#feec4e' },
+      { percent: 0.4, color: '#fde301' },
+      { percent: 0.8, color: '#f0b809' },
+    ]);
 
     const circle = this.add.circle(0, 0, 131);
     this.circle = circle;
@@ -105,23 +133,24 @@ export default class PlayScene extends Phaser.Scene {
     button_front.on('pointerdown', this.onPushButton, this);
     bidText.on('pointerdown', this.onChangeBid, this);
 
+    this.dustParticles = this.createDustParticles();
 
     // Resize
     this.scale.on('resize', this.onResize, this);
     this.onResize();
 
-    console.log(this.mainCam.x, this.mainCam.y);
-    this.mainCam.setPosition(0, -1024);
+    this.mainCam.y = -1024;
     this.tweens.add({
       targets: this.mainCam,
       y: 0,
       ease: 'Quad.easeIn',
-      duration: 1800,
+      duration: 1200,
       onComplete: (() => {
+        this.dustParticles.particles.emitParticle(20);
         this.ui.infoTxt.readyText();
         this.ui.infoTxt.alpha = 0;
         this.tweens.add({
-          targets: [this.ui.infoTxt, this.ui.moneyTxt],
+          targets: this.ui.infoTxt,
           alpha: 1,
           duration: 600,
         });
@@ -142,11 +171,11 @@ export default class PlayScene extends Phaser.Scene {
 
   // Gameplay methods
   set balance(amount) {
-    this.ui.moneyTxt.setCounter(amount);
+    this.moneyTxt.setCounter(amount);
   }
 
   get balance() {
-    return this.ui.moneyTxt.amount;
+    return this.moneyTxt.amount;
   }
 
   onPushButton() {
@@ -158,8 +187,8 @@ export default class PlayScene extends Phaser.Scene {
   }
 
   startSpin(bid, forceResult = false) {
-    const { circle, button_front, ui, slotController } = this;
-    const { moneyTxt, infoTxt } = ui;
+    const { circle, button_front, ui, slotController, moneyTxt } = this;
+    const { infoTxt } = ui;
 
     if (slotController.spinning || slotController.animating) return;
 
@@ -181,7 +210,47 @@ export default class PlayScene extends Phaser.Scene {
     this.bidIndex = (this.bidIndex + 1) % BID_AMOUNTS.length;
     this.bid = BID_AMOUNTS[this.bidIndex];
     this.bidText.setText(`Bid: ${this.bid}`);
-    this.ui.moneyTxt.duration = 5 * (50 / this.bid);
+    this.moneyTxt.duration = 5 * (50 / this.bid);
+  }
+
+  createDustParticles() {
+    const particles = this.add.particles('atlas');
+    const emitter = particles.createEmitter({
+      on: false,
+      radial: true,
+      frame: 'smoke.png',
+      gravityY: -30,
+      alpha: {
+        start: 0.5,
+        end: 0,
+        ease: 'Sine.easeOut'
+      },
+      angle: {
+        min: -150,
+        max: -60,
+      },
+      lifespan: [900],
+      quantity: [30],
+      scale: {
+        start: 0.8,
+        end: 1.2,
+        ease: 'Sine.easeOut'
+      },
+      speed: {
+        min: 30,
+        max: 50
+      },
+      x: {
+        min: 0,
+        max: 768
+      },
+      y: {
+        ease: 'Linear',
+        min: 1050,
+        max: 975,
+      }
+    });
+    return { particles, emitter };
   }
 
   onResize(gameSize, baseSize, displaySize, resolution) {

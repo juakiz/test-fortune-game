@@ -40,7 +40,7 @@ export default class SlotController {
       slot.stopSpin();
     });
     this.scene.ui.infoTxt.readyText();
-    this.scene.ui.moneyTxt.modCounter(errorData.bid);
+    this.scene.moneyTxt.modCounter(errorData.bid);
     this.scene.circle.setFillStyle(0x36fe00);
     this.spinning = false;
   }
@@ -112,7 +112,7 @@ export default class SlotController {
     if (prize === 0) {
       ui.infoTxt.readyText();
     } else {
-      ui.moneyTxt.modCounter(prize);
+      this.scene.moneyTxt.modCounter(prize);
       if (winType === MATCH_TYPES.WIN) {
         ui.infoTxt.setText(`Win: ${prize} kr!`);
         ui.infoTxt.scaleIn(1400, 100);

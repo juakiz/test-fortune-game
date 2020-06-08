@@ -12,7 +12,6 @@ export default class BGScene extends Phaser.Scene {
   create(data) {
     this.mainCam = this.cameras.main;
     // this.mainCam.setBackgroundColor(BACKGROUND_COLOR);
-    this.mainCam.fadeIn(200);
 
     this.playScene = data.playScene;
 
