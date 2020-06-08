@@ -55,6 +55,7 @@ export default class BigWinChest extends Phaser.GameObjects.Image {
     this.scene.time.addEvent({
       delay: 300,
       callback: (() => {
+        this.scene.playScene.flashSound.play();
         this.scene.mainCam.fadeOut(900, 255, 255, 255);
         this.scene.mainCam.once('camerafadeoutcomplete', this.open.bind(this));
       }).bind(this),

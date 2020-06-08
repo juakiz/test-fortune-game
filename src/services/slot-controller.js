@@ -47,6 +47,8 @@ export default class SlotController {
 
   startSpin() {
     this.spinning = true;
+    this.scene.spinSound.play();
+
     this.scene.slots.forEach(slot => {
       slot.spin();
       slot.setLight(0);
@@ -104,6 +106,8 @@ export default class SlotController {
 
   setPrize(result) {
     this.spinning = false;
+    this.scene.spinSound.stop();
+
     const { symbols, prize } = result;
     const { ui } = this.scene;
     this.scene.circle.setFillStyle(0x36fe00);
@@ -112,6 +116,7 @@ export default class SlotController {
     if (prize === 0) {
       ui.infoTxt.readyText();
     } else {
+      this.scene.coinsSound.play();
       this.scene.moneyTxt.modCounter(prize);
       if (winType === MATCH_TYPES.WIN) {
         this.winAnimation(prize);

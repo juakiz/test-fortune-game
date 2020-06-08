@@ -117,7 +117,11 @@ export default class PlayScene extends Phaser.Scene {
     ];
 
     // Sounds
-    // this.music = this.sound.add('music');
+    this.rockSound = this.sound.add('rock', { volume: 0.5 });
+    this.spinSound = this.sound.add('spinning', { loop: true, volume: 0.5 });
+    this.stopSound = this.sound.add('stop');
+    this.coinsSound = this.sound.add('coins');
+    this.flashSound = this.sound.add('flash');
 
 
     // Events
@@ -157,6 +161,7 @@ export default class PlayScene extends Phaser.Scene {
       ease: 'Quad.easeIn',
       duration: 1200,
       onComplete: (() => {
+        this.rockSound.play();
         this.dustParticles.particles.emitParticle(20);
         this.ui.infoTxt.readyText();
         this.ui.infoTxt.alpha = 0;
@@ -240,7 +245,7 @@ export default class PlayScene extends Phaser.Scene {
         min: -150,
         max: -60,
       },
-      lifespan: [900],
+      lifespan: [900, 1600],
       quantity: [30],
       scale: {
         start: 0.8,
@@ -248,8 +253,8 @@ export default class PlayScene extends Phaser.Scene {
         ease: 'Sine.easeOut',
       },
       speed: {
-        min: 30,
-        max: 50,
+        min: 15,
+        max: 60,
       },
       x: {
         min: 0,
@@ -257,8 +262,8 @@ export default class PlayScene extends Phaser.Scene {
       },
       y: {
         ease: 'Linear',
-        min: 1050,
-        max: 975,
+        min: 1000,
+        max: 1050,
       }
     });
     return { particles, emitter };

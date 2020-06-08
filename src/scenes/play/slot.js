@@ -36,6 +36,8 @@ export default class Slot extends Phaser.GameObjects.Image {
   stopSpin(symbolindex) {
     this.spinning = false;
 
+    this.scene.stopSound.play();
+
     if (typeof symbolindex !== 'undefined')
       this.nextSymbol = `symbols/${SYMBOLS[symbolindex]}`;
   }

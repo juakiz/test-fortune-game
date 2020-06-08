@@ -4,6 +4,11 @@ import atlasImg from 'Assets/assets.png';
 import atlasData from 'Assets/assets.json';
 import JPGatlasImg from 'Assets/jpg_imgs.jpg';
 import JPGatlasData from 'Assets/jpg_imgs.json';
+import Spinning from 'Assets/sounds/spinning.mp3';
+import Rock from 'Assets/sounds/rock.mp3';
+import Stop from 'Assets/sounds/stop.mp3';
+import Coins from 'Assets/sounds/coins.mp3';
+import Flash from 'Assets/sounds/flash.mp3';
 import { FONT_FAMILY, BACKGROUND_COLOR, COLOR_LOADINGBAR_TOP, COLOR_LOADINGBAR_BOT, COLOR_LOADINGBAR_OUTLINE } from '../services/game-settings';
 import { GenerateTexture } from '../utils/generate-texture';
 
@@ -37,7 +42,11 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.atlas('jpg_atlas', JPGatlasImg, JPGatlasData);
 
     // if (TEST_IMG) this.load.image('test_img', TEST_IMG);
-    // if (MUSIC) this.load.audio('music', MUSIC);
+    this.load.audio('spinning', Spinning);
+    this.load.audio('stop', Stop);
+    this.load.audio('rock', Rock);
+    this.load.audio('coins', Coins);
+    this.load.audio('flash', Flash);
 
     // // On Load Complete event
     // this.load.on('complete', () => {
