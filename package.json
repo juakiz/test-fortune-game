@@ -24,7 +24,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "npm": "^6.14.5",
+    "npm": "^6.14.6",
     "phaser": "^3.22.0",
     "weighted-random": "^0.1.0"
   }
